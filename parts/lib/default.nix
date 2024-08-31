@@ -12,6 +12,7 @@
       secrets = import ./secrets.nix {inherit inputs;};
       builders = import ./builders.nix {inherit lib inputs withSystem;};
       validators = import ./validators.nix;
+      hardware = import ./hardware.nix;
     }
   );
 
