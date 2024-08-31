@@ -1,7 +1,6 @@
 {
   perSystem = {
     pkgs,
-    self',
     config,
     inputs',
     ...
@@ -15,7 +14,6 @@
 
         packages = [
           pkgs.git # Nix flakes require git
-          self'.formatter # nix fmt
           pkgs.nix-output-monitor # get clean diff between generations
           inputs'.agenix.packages.agenix # secrets
         ];
