@@ -1,8 +1,12 @@
-{inputs, ...}: {
+{
+  inputs,
+  lib,
+  ...
+}: {
   imports = [inputs.catppuccin.nixosModules.catppuccin];
 
-  config.catppuccin = {
+  catppuccin = {
     enable = true;
-    flavor = "macchiato";
+    flavor = lib.mkDefault "macchiato";
   };
 }

@@ -1,7 +1,7 @@
-let
+{lib, ...}: let
   inherit (import ../ssh.nix) users agenix;
 
-  defineAccess = list: list ++ [users.missrce];
+  defineAccess = list: list ++ lib.attrValues users;
 
   all = defineAccess (builtins.attrValues agenix);
   workstations = defineAccess [agenix.serena agenix.vega];
