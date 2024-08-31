@@ -18,6 +18,6 @@
     ./lib # Custom functions inside the flake applied to the global lib
     ./dev # Development tooling for the flake
 
-    ./systems # System configurations
+    ../systems # System configurations
   ];
 }
