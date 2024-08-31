@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./hw.nix
+  ];
+
   missos = {
     device = {
       type = "desktop";
@@ -7,6 +11,7 @@
     };
     system = {
       interface.graphical = true;
+      yubikeySupport = true;
     };
   };
 }
