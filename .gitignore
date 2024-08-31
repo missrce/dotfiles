@@ -1,0 +1,6 @@
+# Nix build artifacts
+result*
+.direnv/
+
+# Pre-commit config
+.pre-commit-config.yaml
