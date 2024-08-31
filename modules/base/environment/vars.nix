@@ -7,6 +7,6 @@
     SYSTEMD_PAGERSECURE = "true";
     PAGER = "less -FR";
 
-    FLAKE = "/flake";
+    FLAKE = "/etc/nixos";
   };
 }
