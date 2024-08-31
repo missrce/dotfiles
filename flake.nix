@@ -123,5 +123,12 @@
 
       inputs.systems.follows = "systems";
     };
+
+    # Catppuccin Theming
+    catppuccin = {
+      type = "github";
+      owner = "catppuccin";
+      repo = "nix";
+    };
   };
 }
