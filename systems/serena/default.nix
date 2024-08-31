@@ -8,6 +8,7 @@
       type = "desktop";
       hasBluetooth = true;
       hasSound = true;
+      hasTPM = true;
     };
     system = {
       interface.graphical = true;
