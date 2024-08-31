@@ -6,6 +6,7 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkOption;
+  inherit (lib.lists) optionals;
   inherit (lib.types) bool;
 in {
   options.missos = {
@@ -21,10 +22,9 @@ in {
       [
         pulseaudio
       ]
-      ++ mkIf config.missos.system.interface.graphical [
+      ++ optionals config.missos.system.interface.graphical [
         pkgs.pavucontrol
       ];
-    sound.enable = true;
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;
