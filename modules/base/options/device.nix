@@ -10,7 +10,7 @@ in {
         "server"
       ];
     };
-    interface.graphical =
+    system.interface.graphical =
       mkEnableOption "Graphical user interface"
       // {
         default = false;
