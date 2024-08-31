@@ -4,3 +4,6 @@ result*
 
 # Pre-commit config
 .pre-commit-config.yaml
+
+# Ignore VM image files
+*.qcow2
