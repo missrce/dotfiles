@@ -6,5 +6,7 @@
     ./nix
     # Import the environment config
     ./environment
+    # Add options
+    ./options
   ];
 }
