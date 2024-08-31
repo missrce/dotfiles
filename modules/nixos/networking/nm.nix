@@ -7,9 +7,9 @@
   inherit (lib.modules) mkIf mkForce;
   inherit (lib.lists) optionals;
 
-  inherit (config.missos) device interface;
+  inherit (config.missos) device system;
 in {
-  environment.systemPackages = optionals interface.graphical [
+  environment.systemPackages = optionals system.interface.graphical [
     pkgs.networkmanagerapplet # provides nm-connection-editor
   ];
 
