@@ -7,9 +7,19 @@
   inherit (lib.builders) mkSystems;
   inherit (lib.attrsets) listToAttrs;
 
+  modulePath = "${self}/modules";
+
+  base = "${modulePath}/base";
+
+  shared = [
+    base
+  ];
+
   systems = [
     {
-      
+      host = "serena";
+      target = "nixos";
+      modules = shared;
     }
   ];
 in {
