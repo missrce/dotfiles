@@ -5,9 +5,13 @@
   ...
 }: {
   zramSwap.enable = true;
-
   services.fstrim.enable = true;
+
   services.xserver.videoDrivers = ["nvidia"];
+
+  environment.systemPackages = [
+    config.hardware.nvidia.package.lib32.bin
+  ];
 
   hardware = {
     nvidia = {
@@ -47,10 +51,9 @@
       package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
-    opengl = {
+    graphics = {
       enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+      enable32Bit = true;
       extraPackages = with pkgs; [
         vulkan-loader
         vulkan-validation-layers
@@ -58,10 +61,6 @@
       ];
     };
   };
-
-  environment.systemPackages = [
-    config.hardware.nvidia.package.lib32.bin
-  ];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
@@ -76,11 +75,10 @@
       };
     };
     initrd.systemd.enable = true;
-    plymouth = {
-      enable = true;
-      theme = "spinner";
-    };
+    plymouth.enable = true;
   };
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
+  system.stateVersion = "24.11";
 }
