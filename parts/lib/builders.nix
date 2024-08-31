@@ -37,7 +37,6 @@
             specialArgs;
 
           modules = concatLists [
-            ["${self}/modules/base/default.nix"]
             ["${self}/modules/${target}/default.nix"]
             ["${self}/hosts/${host}/default.nix"]
             (singleton {
