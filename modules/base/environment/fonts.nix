@@ -6,7 +6,7 @@
       pkgs.source-sans-pro
       pkgs.commit-mono
       (pkgs.nerdfonts.override {
-        fonts = ["Commit Mono"];
+        fonts = ["CommitMono"];
       })
     ];
     fontDir.enable = true;
