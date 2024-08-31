@@ -41,7 +41,7 @@
               "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel.nix"
             ])
             ["${self}/modules/${target}/default.nix"]
-            ["${self}/hosts/${host}/default.nix"]
+            ["${self}/systems/${host}/default.nix"]
             (singleton {
               networking.hostName = host;
             })

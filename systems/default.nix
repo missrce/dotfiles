@@ -9,14 +9,12 @@
 
   systems = [
     {
-      host = "solstice";
-      target = "iso";
-      modules = [];
+      
     }
   ];
 in {
   flake = {
-    nixosConfigurations = mkSystems (filter (sys: sys.target == "nixos") systems);
+    nixosConfigurations = mkSystems (filter (sys: sys.target == "nixos" || sys.target == "iso") systems);
 
     vms = listToAttrs (
       map (system: {
@@ -32,7 +30,7 @@ in {
       listToAttrs (
         map (iso: {
           name = iso.host;
-          value = inputs.self.nixosConfigurations.${iso.host}.config.system.build.isoImage;
+          value = self.nixosConfigurations.${iso.host}.config.system.build.isoImage;
         })
         isos
       );
