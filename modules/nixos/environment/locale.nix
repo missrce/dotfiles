@@ -2,7 +2,7 @@
   console = {
     keyMap = "uk";
   };
-  
+
   time = {
     timeZone = "Europe/London";
     hardwareClockInLocalTime = true;
