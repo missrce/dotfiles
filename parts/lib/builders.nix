@@ -7,7 +7,7 @@
   inherit (self) lib;
 
   inherit (lib) nixosSystem;
-  inherit (lib.lists) singleton concatLists;
+  inherit (lib.lists) optionals singleton concatLists;
   inherit (lib.attrsets) recursiveUpdate listToAttrs;
 
   mkSystem = {
@@ -37,6 +37,9 @@
             specialArgs;
 
           modules = concatLists [
+            (optionals (target == "iso") [
+              "${inputs.nixpkgs}/nixos/modules/installer/cd-dvd/installation-cd-minimal-new-kernel.nix"
+            ])
             ["${self}/modules/${target}/default.nix"]
             ["${self}/hosts/${host}/default.nix"]
             (singleton {
