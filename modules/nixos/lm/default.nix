@@ -1,10 +1,8 @@
-{ lib, ... }:
-let
+{lib, ...}: let
   inherit (lib.options) mkOption;
   inherit (lib.types) nullOr enum;
   inherit (lib.modules) mkDefault;
-in
-{
+in {
   imports = [
     ./autologin.nix
     ./sddm.nix
