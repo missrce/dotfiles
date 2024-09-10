@@ -12,7 +12,7 @@
     };
     system = {
       interface.graphical = true;
-      yubikeySupport.enable = true;
+      yubikeySupport = true;
     };
   };
 }

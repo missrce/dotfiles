@@ -5,13 +5,17 @@
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.options) mkEnableOption;
+  inherit (lib.lists) optionals;
+  inherit (lib.types) bool;
+  inherit (lib.options) mkOption;
 in {
-  options.missos.system.yubikeySupport = {
-    enable = mkEnableOption "yubikey support";
+  options.missos.system.yubikeySupport = mkOption {
+    type = bool;
+    default = false;
+    description = "yubikey support";
   };
 
-  config = mkIf config.missos.system.yubikeySupport.enable {
+  config = mkIf config.missos.system.yubikeySupport {
     hardware.gpgSmartcards.enable = true;
 
     services = {
@@ -28,12 +32,12 @@ in {
     };
 
     # Yubico's official tools
-    environment.systemPackages = builtins.attrValues {
-      inherit
-        (pkgs)
-        yubikey-manager # cli
-        yubikey-manager-qt # gui
-        ;
-    };
+    environment.systemPackages = with pkgs;
+      [
+        yubikey-manager
+      ]
+      ++ optionals config.missos.system.interface.graphical [
+        pkgs.yubikey-manager-qt
+      ];
   };
 }

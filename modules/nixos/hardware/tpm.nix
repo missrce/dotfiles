@@ -6,8 +6,6 @@
   inherit (lib.options) mkOption;
   inherit (lib.types) bool;
   inherit (lib.modules) mkIf mkDefault;
-
-  inherit (config.missos) device;
 in {
   options.missos.device.hasTPM = mkOption {
     type = bool;
@@ -15,7 +13,7 @@ in {
     description = "Whether the system has tpm support";
   };
 
-  config = mkIf device.hasTPM {
+  config = mkIf config.missos.device.hasTPM {
     security.tpm2 = {
       # enable Trusted Platform Module 2 support
       enable = mkDefault true;

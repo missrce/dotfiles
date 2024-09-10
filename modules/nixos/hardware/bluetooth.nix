@@ -1,13 +1,13 @@
 {
   lib,
+  pkgs,
   config,
   ...
 }: let
   inherit (lib.modules) mkIf;
-  inherit (lib.options) mkEnableOption mkOption;
+  inherit (lib.options) mkOption;
   inherit (lib.types) bool;
-
-  sys = config.missos.system;
+  inherit (lib.lists) optionals;
 in {
   options.missos = {
     device.hasBluetooth = mkOption {
@@ -15,11 +15,9 @@ in {
       default = false;
       description = "Whether or not the system has bluetooth support";
     };
-
-    system.bluetooth.enable = mkEnableOption "Should the device load bluetooth drivers and enable blueman";
   };
 
-  config = mkIf sys.bluetooth.enable {
+  config = mkIf config.missos.device.hasBluetooth {
     hardware.bluetooth = {
       enable = true;
       powerOnBoot = true;
@@ -27,5 +25,9 @@ in {
 
     # https://wiki.nixos.org/wiki/Bluetooth
     services.blueman.enable = true;
+
+    environment.systemPackages = optionals config.missos.system.interface.graphical [
+      pkgs.overskride
+    ];
   };
 }
