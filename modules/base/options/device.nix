@@ -1,6 +1,6 @@
 {lib, ...}: let
   inherit (lib.types) enum;
-  inherit (lib.options) mkOption mkEnableOption;
+  inherit (lib.options) mkOption;
 in {
   options.missos = {
     device.type = mkOption {
@@ -10,10 +10,5 @@ in {
         "server"
       ];
     };
-    system.interface.graphical =
-      mkEnableOption "Graphical user interface"
-      // {
-        default = false;
-      };
   };
 }
