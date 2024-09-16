@@ -15,6 +15,7 @@ All entries are case-insensitive, well apart from booleans but come on that's co
     users = []; # array of usernames that will be configured for the system
   };
   device = {
+    type = "";
     hasTPM = boolean;
     hasBluetooth = boolean;
     hasSound = boolean;
