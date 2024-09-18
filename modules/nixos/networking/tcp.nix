@@ -1,4 +1,22 @@
 {
+  lib,
+  config,
+  ...
+}: let
+  inherit (lib.modules) mkIf;
+
+  inherit (config.missos) device;
+in {
+  networking.tcpcrypt.enable = device.type != "server";
+
+  users = mkIf config.networking.tcpcrypt.enable {
+    groups.tcpcryptd = {};
+    users.tcpcryptd = {
+      group = "tcpcryptd";
+      isSystemUser = true;
+    };
+  };
+
   boot = {
     kernelModules = [
       "tls"
