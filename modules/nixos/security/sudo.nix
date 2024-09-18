@@ -2,6 +2,11 @@
   security.sudo = {
     enable = true;
     execWheelOnly = true;
-    wheelNeedsPassword = false;
+
+    extraConfig = ''
+      Defaults lecture = never
+      Defaults pwfeedback
+      Defaults timestamp_timeout = 300
+    '';
   };
 }
