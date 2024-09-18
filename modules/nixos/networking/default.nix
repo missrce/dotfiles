@@ -6,6 +6,7 @@
   inherit (lib.modules) mkDefault mkForce;
 in {
   imports = [
+    ./firewall
     ./nm.nix
     ./tcp.nix
     ./ssh.nix
