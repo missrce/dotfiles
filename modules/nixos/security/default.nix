@@ -6,6 +6,7 @@
     ./kernel.nix
     ./sudo.nix
     ./apparmor.nix
+    ./auditd.nix
     ./polkit.nix
     ./pam.nix
   ];
