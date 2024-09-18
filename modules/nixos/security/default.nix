@@ -7,5 +7,6 @@
     ./sudo.nix
     ./apparmor.nix
     ./polkit.nix
+    ./pam.nix
   ];
 }
