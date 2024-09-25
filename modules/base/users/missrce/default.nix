@@ -8,7 +8,7 @@
 in {
   users.users.missrce = {
     isNormalUser = true;
-    description = "Buttercup";
+    description = "Integra";
     shell = pkgs.bash;
     hashedPassword = "$y$j9T$tIq/hBimd7jvSr2bL/Lm0/$W0tjpjhc2dGy/F8mf4ASBqrGjO9YXUh9cEvAPNA.hvC";
     extraGroups =
