@@ -1,14 +1,19 @@
 {
   programs = {
-    starship.enable = true;
-
-    bash = {
+    starship = {
       enable = true;
-      historyFile = "/dev/null";
-      historyFileSize = 0;
-      initExtra = ''
-        echo -ne "\e[5 q"
-      '';
+      presets = [
+        "nerd-font-symbols"
+      ];
     };
+
+    # bash = {
+    #   enable = true;
+    # historyFile = "/dev/null";
+    # historyFileSize = 0;
+    # initExtra = ''
+    #   echo -ne "\e[5 q"
+    # '';
+    # };
   };
 }
