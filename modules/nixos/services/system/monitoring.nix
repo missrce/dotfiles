@@ -3,7 +3,7 @@
     # monitor and control temperature
     thermald.enable = true;
 
-    # enable smartd monitoering
+    # enable smartd monitoring
     smartd.enable = true;
   };
 }
