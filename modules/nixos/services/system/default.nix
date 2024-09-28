@@ -5,5 +5,6 @@
     ./logs.nix
     ./monitoring.nix
     ./oomd.nix
+    ./earlyoom.nix
   ];
 }
