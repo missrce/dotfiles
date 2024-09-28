@@ -1,7 +1,7 @@
 {
   environment.variables = {
-    EDITOR = "micrp";
-    VISUAL = "vscode";
+    EDITOR = "micro";
+    VISUAL = "codium";
     SUDO_EDITOR = "micro";
 
     FLAKE = "/etc/nixos";
