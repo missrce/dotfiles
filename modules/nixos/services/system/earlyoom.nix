@@ -47,7 +47,6 @@ in {
           "bun"
           "npm"
           "node"
-          "pipewire(.*)"
         ];
       in [
         "-g"
