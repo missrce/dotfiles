@@ -38,7 +38,7 @@
   };
 
   fileSystems."/" = {
-    device = "UUID=2599b621-1dbb-4bf6-8fa0-8dd80b2814e0";
+    device = "UUID=48608c0f-01df-414b-b500-e6ff2af2f1d0";
     fsType = "bcachefs";
     options = ["noatime" "nodiratime" "nofail"];
   };
