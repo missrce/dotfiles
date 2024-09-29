@@ -15,10 +15,7 @@
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     tmp.cleanOnBoot = true;
-    plymouth = {
-      enable = true;
-      theme = "spinner";
-    };
+    plymouth.enable = true;
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
