@@ -17,7 +17,7 @@ in {
     nixPath = attrValues (mapAttrs (k: v: "${k}=${v.outPath}") flakeInputs);
 
     gc = {
-      automatic = false;
+      automatic = true;
       options = "--delete-older-than 7d";
     };
 
