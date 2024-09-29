@@ -8,6 +8,7 @@
     ./apparmor.nix
     ./auditd.nix
     ./polkit.nix
+    ./keyring.nix
     ./pam.nix
   ];
 }
