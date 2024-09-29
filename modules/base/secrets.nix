@@ -25,13 +25,13 @@ in {
       # Git secrets
 
       git-ssh = mkSecret {
-        file = "keys/git/ssh.age";
+        file = "keys/git/ssh";
         owner = mainUser;
         group = userGroup;
       };
 
       git-gpg = mkSecret {
-        file = "keys/git/gpg.age";
+        file = "keys/git/gpg";
         owner = mainUser;
         group = userGroup;
       };
