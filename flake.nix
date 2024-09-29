@@ -114,10 +114,6 @@
       };
     };
 
-    # Impermanence
-
-    impermanence.url = "github:nix-community/impermanence";
-
     # Hyprland flake
 
     hyprland = {
