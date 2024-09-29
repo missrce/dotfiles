@@ -35,7 +35,7 @@
   };
 
   fileSystems."/" = {
-    device = "UUID=48608c0f-01df-414b-b500-e6ff2af2f1d0";
+    device = "/dev/disk/by-uuid/48608c0f-01df-414b-b500-e6ff2af2f1d0";
     fsType = "bcachefs";
     options = ["noatime" "nodiratime" "nofail"];
   };
