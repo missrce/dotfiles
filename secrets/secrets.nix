@@ -1,13 +1,13 @@
-{lib, ...}: let
+let
   inherit (import ../ssh.nix) users agenix;
 
-  defineAccess = list: list ++ lib.attrValues users;
+  defineAccess = list: { publicKeys = list ++ builtins.attrValues users; };
 
   all = defineAccess (builtins.attrValues agenix);
   workstations = defineAccess [agenix.serena agenix.luna];
 in {
-  "keys/git/ssh.age".publicKeys = all;
-  "keys/git/gpg.age".publicKeys = all;
+  "keys/git/ssh.age" = all;
+  "keys/git/gpg.age" = all;
 
-  "keys/messages/gpg.age".publicKeys = workstations;
+  "keys/messages/gpg.age" = workstations;
 }
