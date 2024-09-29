@@ -5,5 +5,6 @@
     ./firmware.nix # firmware
     ./tpm.nix # Trusted Platform Module
     ./yubikey.nix # yubikey device support and management tools
+    ./filesystems.nix # Filesystem support
   ];
 }
