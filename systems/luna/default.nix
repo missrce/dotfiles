@@ -5,7 +5,7 @@
 
   missos = {
     environment = {
-      # loginManager = "sddm";
+      loginManager = "sddm";
     };
     device = {
       type = "desktop";

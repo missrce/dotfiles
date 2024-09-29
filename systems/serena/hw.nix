@@ -45,17 +45,16 @@
     graphics = {
       enable = true;
       enable32Bit = true;
-      extraPackages = with pkgs; [
-        vulkan-loader
-        vulkan-validation-layers
-        vulkan-extension-layer
-      ];
     };
   };
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
     tmp.cleanOnBoot = true;
+    plymouth = {
+      enable = true;
+      theme = "spinner";
+    };
     loader = {
       efi.canTouchEfiVariables = true;
       systemd-boot = {
@@ -66,7 +65,6 @@
       };
     };
     initrd.systemd.enable = true;
-    plymouth.enable = true;
   };
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
