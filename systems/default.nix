@@ -21,6 +21,11 @@
       target = "nixos";
       modules = shared;
     }
+    {
+      host = "luna";
+      target = "nixos";
+      modules = shared;
+    }
   ];
 in {
   flake = {
