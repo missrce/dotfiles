@@ -5,10 +5,11 @@
 
   missos = {
     environment = {
-      loginManager = "sddm";
+      desktop = "Hyprland";
+      loginManager = "autologin";
     };
     device = {
-      type = "desktop";
+      type = "laptop";
       hasBluetooth = true;
       hasSound = true;
       hasTPM = true;
