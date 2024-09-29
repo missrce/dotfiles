@@ -4,7 +4,7 @@
   defineAccess = list: list ++ lib.attrValues users;
 
   all = defineAccess (builtins.attrValues agenix);
-  workstations = defineAccess [agenix.serena agenix.vega];
+  workstations = defineAccess [agenix.serena agenix.luna];
 in {
   "keys/git/ssh.age".publicKeys = all;
   "keys/git/gpg.age".publicKeys = all;
