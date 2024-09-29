@@ -1,4 +1,13 @@
-{pkgs, ...}: {
+{
+  lib,
+  pkgs,
+  ...
+}: {
+  console = {
+    enable = lib.modules.mkDefault true;
+    earlySetup = true;
+    font = "${pkgs.terminus_font}/share/consolefonts/ter-d16b.psf.gz";
+  };
   fonts = {
     packages = [
       pkgs.inter
