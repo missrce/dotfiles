@@ -5,6 +5,7 @@
 }: let
   inherit (config.missos) environment;
 in {
+  services.xserver.enable = true;
   services.displayManager.sddm = {
     enable = environment.loginManager == "sddm";
     package = pkgs.kdePackages.sddm; # allow qt6 themes to work
