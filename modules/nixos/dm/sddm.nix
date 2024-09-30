@@ -9,6 +9,6 @@ in {
     enable = environment.loginManager == "sddm";
     package = pkgs.kdePackages.sddm; # allow qt6 themes to work
     wayland.enable = true; # run under wayland rather than X11
-    settings.General.InputMethod = "";
+    # settings.General.InputMethod = "";
   };
 }
