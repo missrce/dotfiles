@@ -7,6 +7,7 @@
 
   catppuccin = {
     enable = true;
-    flavor = lib.mkDefault "macchiato";
+    flavor = lib.modules.mkDefault "macchiato";
+    accent = lib.modules.mkDefault "pink";
   };
 }
