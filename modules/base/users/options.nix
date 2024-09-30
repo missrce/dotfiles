@@ -22,6 +22,12 @@ in {
       default = builtins.elemAt config.missos.system.users 0;
     };
 
+    mainUserHashedPassword = mkOption {
+      type = str;
+      description = "The hashed password of the main user for your system";
+      default = "$y$j9T$KVd2VsBv6UwCLIfl8SYIF/$BUo5EMLXlNZzOrhy5wENx6Rg6ec.Lsufah41eQ1eBOB";
+    };
+
     users = mkOption {
       type = listOf str;
       default = ["missrce"];

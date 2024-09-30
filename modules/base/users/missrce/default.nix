@@ -10,7 +10,7 @@ in {
     isNormalUser = true;
     description = "Integra";
     shell = pkgs.bash;
-    hashedPassword = "$y$j9T$tIq/hBimd7jvSr2bL/Lm0/$W0tjpjhc2dGy/F8mf4ASBqrGjO9YXUh9cEvAPNA.hvC";
+    hashedPassword = config.missos.system.mainUserHashedPassword;
     extraGroups =
       ["wheel" "nix"]
       ++ ifGroupsExist config [
