@@ -14,7 +14,7 @@ in {
       "sddm"
     ]);
     default = "sddm";
-    description = "The login manager to be used by the system.";
+    description = "The display manager to be used by the system.";
   };
 
   # If the config is inside of a VM, we want to autologin as security is not the upmost concern.

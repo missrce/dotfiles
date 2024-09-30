@@ -6,6 +6,7 @@
     ./hardware # Re-usable hardware configs
     ./environment # Environment stuff
     ./dm # Display Manager configurations
+    ./desktop # Desktop configs
 
     ./nix.nix # Modify Nix configuration
     ./catppuccin.nix # Catppuccin setup

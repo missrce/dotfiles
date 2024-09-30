@@ -5,8 +5,8 @@
 
   missos = {
     environment = {
-      # desktop = "Hyprland";
-      loginManager = "autologin";
+      desktop = "Hyprland";
+      loginManager = "sddm";
     };
     device = {
       type = "laptop";
