@@ -4,4 +4,6 @@
     ./root.nix
     ./missrce
   ];
+
+  users.mutableUsers = false;
 }
