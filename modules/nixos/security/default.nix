@@ -4,6 +4,7 @@
   imports = [
     "${modulesPath}/profiles/hardened.nix"
     ./kernel.nix
+    ./secureboot.nix
     ./sudo.nix
     ./apparmor.nix
     ./auditd.nix
