@@ -19,8 +19,16 @@
     kernelPackages = pkgs.linuxPackages_latest;
     tmp.cleanOnBoot = true;
     plymouth.enable = true;
+
+    boot.lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+      configurationLimit = 3;
+    };
+
     loader = {
       efi.canTouchEfiVariables = true;
+
       # systemd-boot = {
       #   enable = true;
       #   configurationLimit = 3;
@@ -28,15 +36,10 @@
       #   memtest86.enable = true;
       # };
 
-      boot.loader.systemd-boot.enable = lib.mkForce false;
-
-      boot.lanzaboote = {
-        enable = true;
-        pkiBundle = "/etc/secureboot";
-        configurationLimit = 3;
-      };
+      systemd-boot.enable = lib.mkForce false;
     };
-    initrd.systemd.enable = true;
+
+    # initrd.systemd.enable = true;
   };
 
   fileSystems."/boot" = {
