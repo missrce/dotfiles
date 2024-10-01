@@ -10,11 +10,11 @@
   modulePath = "${self}/modules";
 
   base = "${modulePath}/base";
-  homes = ../home;
+  # homes = ../home;
 
   shared = [
     base
-    homes
+    # homes
   ];
 
   systems = [
