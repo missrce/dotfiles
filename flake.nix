@@ -84,7 +84,7 @@
 
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        # darwin.follows = "";
+        darwin.follows = "";
         home-manager.follows = "home-manager";
         systems.follows = "systems";
       };
