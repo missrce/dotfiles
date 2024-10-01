@@ -1,9 +1,12 @@
 {
+  inputs,
   config,
   pkgs,
   lib,
   ...
 }: {
+  imports = [inputs.lanzaboote.nixosModules.lanzaboote];
+
   zramSwap.enable = true;
   services.fstrim.enable = true;
 
@@ -18,11 +21,19 @@
     plymouth.enable = true;
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
+      # systemd-boot = {
+      #   enable = true;
+      #   configurationLimit = 3;
+      #   netbootxyz.enable = true;
+      #   memtest86.enable = true;
+      # };
+
+      boot.loader.systemd-boot.enable = lib.mkForce false;
+
+      boot.lanzaboote = {
         enable = true;
+        pkiBundle = "/etc/secureboot";
         configurationLimit = 3;
-        netbootxyz.enable = true;
-        memtest86.enable = true;
       };
     };
     initrd.systemd.enable = true;
