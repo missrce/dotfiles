@@ -39,7 +39,7 @@
       systemd-boot.enable = lib.modules.mkForce false;
     };
 
-    # initrd.systemd.enable = true;
+    initrd.systemd.enable = true;
   };
 
   fileSystems."/boot" = {
