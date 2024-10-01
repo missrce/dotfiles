@@ -15,7 +15,7 @@
     }
   );
 
-  extendedLib = customLib.extend (_: _: originalLib);
+  extendedLib = customLib.extend (_: _: originalLib.extend (_: _: inputs.home-manager.lib));
 in {
   flake.lib = extendedLib;
   perSystem._module.args.lib = extendedLib;
