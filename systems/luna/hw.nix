@@ -36,7 +36,7 @@
       #   memtest86.enable = true;
       # };
 
-      systemd-boot.enable = lib.mkForce false;
+      systemd-boot.enable = lib.modules.mkForce false;
     };
 
     # initrd.systemd.enable = true;
