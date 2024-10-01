@@ -5,7 +5,6 @@
 in {
   imports = [
     ./autologin.nix
-    ./sddm.nix
   ];
 
   options.missos.environment.loginManager = mkOption {
