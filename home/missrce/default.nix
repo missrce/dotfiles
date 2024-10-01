@@ -1,5 +1,5 @@
 {osConfig, ...}: {
-  config.home = {
+  home = {
     username = "missrce";
     homeDirectory = osConfig.users.users.missrce.home;
   };
