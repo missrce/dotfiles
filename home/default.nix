@@ -10,6 +10,8 @@
   inherit (lib.modules) mkForce mkDefault;
   inherit (lib.attrsets) genAttrs;
 in {
+  imports = [inputs.home-manager.nixosModules.home-manager];
+
   home-manager = {
     verbose = true;
     useUserPackages = true;
