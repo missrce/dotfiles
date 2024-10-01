@@ -11,9 +11,9 @@ in {
   options.missos.environment.loginManager = mkOption {
     type = nullOr (enum [
       "autologin"
-      "sddm"
+      "getty"
     ]);
-    default = "sddm";
+    default = "getty";
     description = "The display manager to be used by the system.";
   };
 
