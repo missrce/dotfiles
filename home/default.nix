@@ -29,7 +29,7 @@ in {
 
     users = genAttrs config.missos.system.users (name: ./${name});
 
-    # we should define grauntied common modules here
+    # we should define guaranteed common modules here
     sharedModules = [
       {
         nix.package = mkForce config.nix.package;
