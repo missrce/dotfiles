@@ -20,7 +20,7 @@
     tmp.cleanOnBoot = true;
     plymouth.enable = true;
 
-    boot.lanzaboote = {
+    lanzaboote = {
       enable = true;
       pkiBundle = "/etc/secureboot";
       configurationLimit = 3;
