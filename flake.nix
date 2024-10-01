@@ -31,7 +31,7 @@
     systems = {
       type = "github";
       owner = "nix-systems";
-      repo = "default";
+      repo = "default-linux";
     };
 
     # For other inputs to follow preventing multiple copies of flake-utils when one is only needed.
