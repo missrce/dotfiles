@@ -2,6 +2,8 @@
   programs.starship = {
     enable = true;
 
+    catppuccin.enable = true;
+
     enableBashIntegration = false;
     enableZshIntegration = false;
     enableFishIntegration = false;
