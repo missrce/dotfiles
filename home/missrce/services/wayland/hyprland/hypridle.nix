@@ -1,5 +1,13 @@
 {
-  services.hypridle = {
+  lib,
+  osConfig,
+  ...
+}:
+let
+  inherit (lib.modules) mkIf;
+  inherit (osConfig.missos) system environment;
+in {
+  services.hypridle = mkIf (system.interface.graphical && environment.desktop == "Hyprland") {
     enable = true;
     settings = {
       general = {
