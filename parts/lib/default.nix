@@ -10,6 +10,7 @@
       lib = self;
     in {
       secrets = import ./secrets.nix {inherit inputs;};
+      services = import ./services.nix {inherit lib;};
       builders = import ./builders.nix {inherit lib inputs withSystem;};
       validators = import ./validators.nix;
     }
