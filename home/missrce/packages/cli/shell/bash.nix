@@ -1,20 +1,17 @@
-{
-  config,
-  ...
-}:
-{
+{config, ...}: {
   programs = {
     starship = {
       enable = true;
-      
+
       enableBashIntegration = false;
       enableZshIntegration = false;
       enableFishIntegration = false;
       enableIonIntegration = false;
       enableNushellIntegration = false;
 
-      presets = [ "nerd-font-symbols" ];
       settings = {
+        presets = ["nerd-font-symbols"];
+
         battery.disabled = true;
       };
     };
