@@ -8,7 +8,7 @@
     historyFile = "/dev/null";
     historyFileSize = 0;
     profileExtra = ''
-
+      . "${config.home.homeDirectory}/.config/environment.d/10-home-manager.conf"
     '';
     initExtra = ''
       if [[ $(tty) == /dev/pts/* ]]; then

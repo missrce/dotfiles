@@ -1,5 +1,5 @@
 {
-  systemd.user.sessionVariables = {
+  home.sessionVariables = {
     EDITOR = "micro";
     VISUAL = "codium";
     SUDO_EDITOR = "micro";
