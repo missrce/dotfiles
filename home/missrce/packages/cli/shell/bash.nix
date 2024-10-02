@@ -14,8 +14,6 @@
       enableNushellIntegration = false;
 
       settings = {
-        presets = ["nerd-font-symbols"];
-
         battery.disabled = true;
       };
     };
