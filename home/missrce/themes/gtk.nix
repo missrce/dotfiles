@@ -35,6 +35,7 @@ in {
       catppuccin = {
         enable = true;
         icon.enable = true;
+        tweaks = ["float"];
       };
 
       font = {
