@@ -8,8 +8,6 @@
   inherit (lib.modules) mkIf mkForce;
   inherit (osConfig.missos.system.interface) graphical;
 in {
-  services.dbus.packages = mkIf graphical [pkgs.gcr];
-
   services.gpg-agent = mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
     enableBashIntegration = config.programs.bash.enable;
