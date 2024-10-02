@@ -8,6 +8,7 @@
     ./sudo.nix
     ./apparmor.nix
     ./auditd.nix
+    ./clamav.nix
     ./polkit.nix
     ./keyring.nix
     ./pam.nix

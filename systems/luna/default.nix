@@ -20,6 +20,7 @@
       interface.graphical = true;
       yubikeySupport = true;
       security = {
+        clamav.enable = true;
         auditd = {
           enable = true;
           autoPrune.enable = true;
