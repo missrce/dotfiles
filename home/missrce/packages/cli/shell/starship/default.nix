@@ -8,8 +8,10 @@
     enableIonIntegration = false;
     enableNushellIntegration = false;
 
-    settings = builtins.fromTOML (builtins.readFile ./jetpack.toml) // {
-      battery.disabled = true;
-    };
+    settings =
+      builtins.fromTOML (builtins.readFile ./nerd-font-symbols.toml)
+      // {
+        battery.disabled = true;
+      };
   };
 }
