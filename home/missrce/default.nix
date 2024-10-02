@@ -2,6 +2,7 @@
   imports = [
     ./themes # Application themes
     ./system # Home system configurations
+    ./packages # Packages to install and configure
   ];
 
   home = {
