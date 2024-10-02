@@ -4,12 +4,12 @@
   config,
   osConfig,
   ...
-}:
-let
+}: let
   inherit (lib.modules) mkIf mkForce;
   inherit (osConfig.missos.system.interface) graphical;
-in
-{
+in {
+  services.dbus.packages = mkIf graphical [pkgs.gcr];
+
   services.gpg-agent = mkIf pkgs.stdenv.hostPlatform.isLinux {
     enable = true;
     enableBashIntegration = config.programs.bash.enable;
@@ -17,13 +17,10 @@ in
     enableZshIntegration = config.programs.zsh.enable;
     enableNushellIntegration = config.programs.nushell.enable;
 
-    services.dbus.packages = mkIf graphical [pkgs.gcr];
-
     pinentryPackage =
-      if graphical then
-        pkgs.pinentry-gnome3
-      else
-        pkgs.pinentry-curses;
+      if graphical
+      then pkgs.pinentry-gnome3
+      else pkgs.pinentry-curses;
     enableScDaemon = true;
     enableSshSupport = true;
     defaultCacheTtl = 1209600;
