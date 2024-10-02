@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   programs = {
     starship = {
       enable = true;
@@ -24,7 +28,7 @@
       '';
       initExtra = ''
         if [[ $(tty) == /dev/tty* ]]; then
-          eval "$(${config.programs.starship.package} init bash)"
+          eval "$(${lib.getExe config.programs.starship.package} init bash)"
         fi
         echo -ne "\e[5 q"
       '';
