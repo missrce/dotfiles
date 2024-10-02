@@ -1,7 +1,9 @@
 let
-  inherit (builtins) filter hasAttr;
+  inherit (builtins) elem filter hasAttr;
 
   ifGroupsExist = config: groups: filter (group: hasAttr group config.users.groups) groups;
+
+  isAcceptedDevice = conf: list: elem conf.missos.device.type list;
 in {
-  inherit ifGroupsExist;
+  inherit isAcceptedDevice ifGroupsExist;
 }
