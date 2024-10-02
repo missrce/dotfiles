@@ -1,6 +1,5 @@
 {
   lib,
-  pkgs,
   osConfig,
   ...
 }:
@@ -8,13 +7,15 @@ let
   inherit (lib.modules) mkIf;
   inherit (lib.validators) isAcceptedDevice;
 
+  inherit (osConfig.missos.system.interface) graphical;
+
   acceptedTypes = [
     "laptop"
     "desktop"
   ];
 in
 {
-  config = mkIf (isAcceptedDevice osConfig acceptedTypes && pkgs.stdenv.hostPlatform.isLinux) {
+  config = mkIf (isAcceptedDevice osConfig acceptedTypes && graphical) {
     qt = {
       enable = true;
       platformTheme.name = "kvantum";

@@ -8,12 +8,14 @@
   inherit (lib.modules) mkIf;
   inherit (lib.validators) isAcceptedDevice;
 
+  inherit (osConfig.missos.system.interface) graphical;
+
   acceptedTypes = [
     "laptop"
     "desktop"
   ];
 in {
-  config = mkIf isAcceptedDevice osConfig acceptedTypes {
+  config = mkIf (isAcceptedDevice osConfig acceptedTypes && graphical) {
     xdg.systemDirs.data = let
       schema = pkgs.gsettings-desktop-schemas;
     in ["${schema}/share/gsettings-schemas/${schema.name}"];
