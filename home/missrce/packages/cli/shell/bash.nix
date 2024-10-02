@@ -15,6 +15,7 @@
         eval "$(${lib.getExe config.programs.starship.package} init bash)"
       fi
       echo -ne "\e[5 q"
+      unset SSH_AUTH_SOCK
       unset __HM_SESS_VARS_SOURCED
       . "${config.home.profileDirectory}/etc/profile.d/hm-session-vars.sh"
       . "${config.home.homeDirectory}/.config/environment.d/10-home-manager.conf"
