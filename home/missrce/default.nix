@@ -1,6 +1,7 @@
 {osConfig, ...}: {
   imports = [
     ./themes # Application themes
+    ./services # Services with SystemD
     ./system # Home system configurations
     ./packages # Packages to install and configure
   ];
