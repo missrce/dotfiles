@@ -1,11 +1,15 @@
 {
+  modulesPath,
   inputs,
   config,
   pkgs,
   lib,
   ...
 }: {
-  imports = [inputs.lanzaboote.nixosModules.lanzaboote];
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.lanzaboote.nixosModules.lanzaboote
+  ];
 
   zramSwap.enable = true;
   services.fstrim.enable = true;

@@ -1,9 +1,14 @@
 {
+  modulesPath,
   config,
   pkgs,
   lib,
   ...
 }: {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
+
   zramSwap.enable = true;
   services.fstrim.enable = true;
 
