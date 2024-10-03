@@ -9,6 +9,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.lanzaboote.nixosModules.lanzaboote
+    inputs.disko.nixosModules.disko
   ];
 
   zramSwap.enable = true;
@@ -46,73 +47,56 @@
     initrd.systemd.enable = true;
   };
 
-  boot.initrd.luks.devices."luks_root".device = "/dev/disk/by-uuid/37a4bc2a-0892-492c-ae2d-d7cd312406a7";
-
-  fileSystems = {
-    "/boot" = {
-      device = "/dev/disk/by-uuid/B031-FEFC";
-      fsType = "vfat";
-      options = ["fmask=0077" "dmask=0077"];
-    };
-
-    "/" = {
-      device = "/dev/mapper/luks_root";
-      fsType = "btrfs";
-      options = ["subvol=root" "noatime" "nodiratime"];
-    };
-
-    "/persist" = {
-      device = "/dev/mapper/luks_root";
-      neededForBoot = true;
-      fsType = "btrfs";
-      options = ["subvol=persist" "compress=zstd" "noatime" "nodiratime"];
-    };
-
-    "/nix" = {
-      device = "/dev/mapper/luks_root";
-      fsType = "btrfs";
-      options = ["subvol=nix" "compress=zstd" "noatime" "nodiratime"];
-    };
-  };
-
-  boot.initrd.systemd.services.btrfsSetup = {
-    description = "Setup BTRFS Temporary Directory";
-    wantedBy = [
-      "initrd.target"
-    ];
-    after = [
-      "systemd-cryptsetup@luks_root.service"
-    ];
-    before = [
-      "sysroot.mount"
-    ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = ''
-        mkdir -p /btrfs_tmp
-        mount /dev/mapper/luks_root /btrfs_tmp
-
-        if [[ -e /btrfs_tmp/root ]]; then
-          mkdir -p /btrfs_tmp/old_roots
-          timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%d_%H:%M:%S")
-          mv /btrfs_tmp/root "/btrfs_tmp/old_roots/$timestamp"
-        fi
-
-        delete_subvolume_recursively() {
-          IFS=$'\n'
-          for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
-            delete_subvolume_recursively "/btrfs_tmp/$i"
-          done
-          btrfs subvolume delete "$1"
-        }
-
-        for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +1); do
-          delete_subvolume_recursively "$i"
-        done
-
-        btrfs subvolume create /btrfs_tmp/root
-        umount /btrfs_tmp
-      '';
+  disko.devices = {
+    disk = {
+      vdb = {
+        device = "/dev/disk/by-id/nvme-Seagate_FireCuda_SE_SSD_ZP1000GM30033_7VQ02747";
+        type = "disk";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              type = "EF00";
+              size = "512M";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = ["fmask=0077" "umask=0077"];
+              };
+            };
+            luks = {
+              size = "100%";
+              content = {
+                type = "luks";
+                name = "crypted";
+                askPassword = true;
+                settings = {
+                  allowDiscards = true;
+                };
+                content = {
+                  type = "btrfs";
+                  extraArgs = ["-f"];
+                  subvolumes = {
+                    "/root" = {
+                      mountpoint = "/";
+                      mountOptions = ["compress=zstd" "noatime" "nodiratime"];
+                    };
+                    "/home" = {
+                      mountpoint = "/home";
+                      mountOptions = ["compress=zstd" "noatime" "nodiratime"];
+                    };
+                    "/nix" = {
+                      mountpoint = "/nix";
+                      mountOptions = ["compress=zstd" "noatime" "nodiratime"];
+                    };
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
     };
   };
 
