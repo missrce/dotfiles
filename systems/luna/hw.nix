@@ -77,7 +77,15 @@
 
   boot.initrd.systemd.services.btrfsSetup = {
     description = "Setup BTRFS Temporary Directory";
-    after = ["local-fs.target"]; # Ensure it runs after local filesystems are mounted
+    wantedBy = [
+      "initrd.target"
+    ];
+    after = [
+      "systemd-cryptsetup"
+    ];
+    before = [
+      "sysroot.mount"
+    ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = ''
