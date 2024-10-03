@@ -6,6 +6,5 @@
     ./gpg.nix # gpg agent settings
     ./ssh.nix # ssh agent settings
     ./xdg.nix # xdg shenanigans
-    ./impermanence.nix # impermanence home-manager edition
   ];
 }

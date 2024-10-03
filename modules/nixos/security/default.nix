@@ -3,7 +3,6 @@
 {modulesPath, ...}: {
   imports = [
     "${modulesPath}/profiles/hardened.nix"
-    ./impermanence.nix
     ./kernel.nix
     ./secureboot.nix
     ./sudo.nix

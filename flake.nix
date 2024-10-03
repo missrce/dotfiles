@@ -90,10 +90,6 @@
       };
     };
 
-    # Impermanence
-
-    impermanence.url = "github:nix-community/impermanence";
-
     # Userspace management
 
     home-manager = {
@@ -101,6 +97,18 @@
       owner = "nix-community";
       repo = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # manage disk partition layouts declaratively
+
+    disko = {
+      type = "github";
+      owner = "nix-community";
+      repo = "disko";
+
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+      };
     };
 
     # Secure Boot for NixOS
