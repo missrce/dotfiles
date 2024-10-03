@@ -61,11 +61,11 @@
       options = ["subvol=root" "noatime" "nodiratime"];
     };
 
-    "/persistent" = {
+    "/persist" = {
       device = "/dev/mapper/luks_root";
       neededForBoot = true;
       fsType = "btrfs";
-      options = ["subvol=persistent" "compress=zstd" "noatime" "nodiratime"];
+      options = ["subvol=persist" "compress=zstd" "noatime" "nodiratime"];
     };
 
     "/nix" = {

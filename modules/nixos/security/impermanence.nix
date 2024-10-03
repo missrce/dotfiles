@@ -3,11 +3,11 @@
 in {
   imports = [ inputs.impermanence.nixosModules.impermanence ];
   fileSystems."/etc/ssh" = {
-    depends = ["/persistent"];
+    depends = ["/persist"];
     neededForBoot = true;
   };
   programs.fuse.userAllowOther = true;
-  environment.persistence."/persistent" = {
+  environment.persistence."/persist" = {
     enable = true;  # NB: Defaults to true, not needed
     hideMounts = true;
     directories = forEach ["nixos" "NetworkManager" "nix" "ssh" "secureboot"] (x: "/etc/${x}")
