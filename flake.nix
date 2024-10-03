@@ -90,6 +90,10 @@
       };
     };
 
+    # Impermanence
+
+    impermanence.url = "github:nix-community/impermanence";
+
     # Userspace management
 
     home-manager = {
