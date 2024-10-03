@@ -49,7 +49,7 @@
 
   disko.devices = {
     disk = {
-      vdb = {
+      main = {
         device = "/dev/disk/by-id/nvme-Seagate_FireCuda_SE_SSD_ZP1000GM30033_7VQ02747";
         type = "disk";
         content = {
