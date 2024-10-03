@@ -81,7 +81,7 @@
       "initrd.target"
     ];
     after = [
-      "systemd-cryptsetup"
+      "systemd-cryptsetup@luks_root.service"
     ];
     before = [
       "sysroot.mount"
