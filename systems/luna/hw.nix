@@ -26,23 +26,22 @@
     tmp.cleanOnBoot = true;
     plymouth.enable = true;
 
-    # lanzaboote = {
-    #   enable = true;
-    #   pkiBundle = "/etc/secureboot";
-    #   configurationLimit = 3;
-    # };
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+      configurationLimit = 3;
+    };
 
     loader = {
       efi.canTouchEfiVariables = true;
 
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 3;
-        netbootxyz.enable = true;
-        memtest86.enable = true;
-      };
+      # systemd-boot = {
+      #   enable = true;
+      #   configurationLimit = 3;
+      #   memtest86.enable = true;
+      # };
 
-      # systemd-boot.enable = lib.modules.mkForce false;
+      systemd-boot.enable = lib.modules.mkForce false;
     };
 
     initrd.systemd.enable = true;
