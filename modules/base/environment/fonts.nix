@@ -22,7 +22,7 @@
     fontconfig = {
       defaultFonts = {
         sansSerif = ["Inter Variable" "Inter Variable Regular" "Inter" "Inter Regular" "Cantarell" "DejaVu Sans"];
-        monospace = ["CommitMono Nerd Font" "Commit Mono" "DejaVu Sans Mono"];
+        monospace = ["CommitMono Nerd Font" "CommitMono" "DejaVu Sans Mono"];
       };
     };
   };
