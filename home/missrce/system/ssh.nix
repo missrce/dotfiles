@@ -1,8 +1,6 @@
-{ osConfig, ... }:
-let
+{osConfig, ...}: let
   inherit (osConfig.age) secrets;
-in
-{
+in {
   programs.ssh = {
     enable = true;
     hashKnownHosts = true;
@@ -25,6 +23,7 @@ in
       "gitlab.com" = {
         user = "git";
         hostname = "gitlab.com";
+        identityFile = secrets.git-ssh.path;
       };
     };
   };
