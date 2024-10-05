@@ -6,7 +6,7 @@
     extraConfig = ''
       Defaults lecture = never
       Defaults pwfeedback
-      Defaults timestamp_timeout = 300
+      Defaults timestamp_timeout = 5
     '';
   };
 }
