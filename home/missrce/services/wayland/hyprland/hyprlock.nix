@@ -10,7 +10,7 @@
 
   palette = (lib.importJSON "${sources.palette}/palette.json").${flavor}.colors;
 
-  rgbString = colorSet: "rgb(${colorSet.rgb.r}, ${colorSet.rgb.g}, ${colorSet.rgb.b})";
+  rgbString = colorSet: "rgb(${toString colorSet.rgb.r}, ${toString colorSet.rgb.g}, ${toString colorSet.rgb.b})";
 in {
   programs.hyprlock = mkIf (system.interface.graphical && environment.desktop == "Hyprland") {
     enable = true;
