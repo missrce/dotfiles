@@ -5,40 +5,43 @@
 }: let
   inherit (lib.modules) mkIf;
   inherit (osConfig.missos) system environment;
+
+  inherit (osConfig.catppuccin) sources flavor accent;
+
+  palette = (lib.importJSON "${sources.palette}/palette.json").${flavor}.colors;
 in {
   programs.hyprlock = mkIf (system.interface.graphical && environment.desktop == "Hyprland") {
     enable = true;
 
-    extraConfig = ''
-      background {
-        monitor =
-        color = $base
-      }
+    settings = {
+      background = [
+        {
+          color = palette.base;
+        }
+      ];
 
-      input-field {
-        monitor =
-        placeholder_text = <i>:3</i>
+      input-field = [
+        {
+          placeholder_text = ":3";
+          fail_text = "$FAIL";
+          fail_timeout = 500;
 
-        size = 400, 50
-        outline_thickness = 2
-        dots_size = 0.2
-        dots_center = true
-        fade_on_empty = true
+          size = "400, 50";
+          position = "0, 0";
+          halign = "center";
+          valign = "center";
 
-        position = 0, 0
-        halign = center
-        valign = center
-
-        outer_color = $accent
-        inner_color = $surface0
-        font_color = $text
-        check_color = $peach
-        fail_color = $red
-
-        fail_timeout = 500
-      }
-    '';
-
-    catppuccin.enable = true;
+          outline_tickness = 2;
+          dots_center = true;
+          dots_size = 0.2;
+          fade_on_empty = true;
+          outer_color = palette.${accent};
+          inner_color = palette.surface0;
+          font_color = palette.text;
+          check_color = palette.peach;
+          fail_color = palette.red;
+        }
+      ];
+    };
   };
 }
