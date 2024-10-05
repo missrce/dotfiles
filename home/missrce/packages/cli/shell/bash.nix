@@ -14,10 +14,10 @@ in {
       . "${config.home.homeDirectory}/.config/environment.d/10-home-manager.conf"
     '';
     initExtra = mkBefore ''
-      ${optionals config.programs.atuin.enable "unset ATUIN_NOBIND"}
+      ${optionals config.programs.atuin.enable "export ATUIN_NOBIND=\"true\""}
       if [[ $(tty) == /dev/pts/* ]]; then
         eval "$(${lib.getExe config.programs.starship.package} init bash)"
-        ${optionals config.programs.atuin.enable "export ATUIN_NOBIND=\"true\""}
+        ${optionals config.programs.atuin.enable "unset ATUIN_NOBIND"}
       fi
       echo -ne "\e[5 q"
       unset SSH_AUTH_SOCK
