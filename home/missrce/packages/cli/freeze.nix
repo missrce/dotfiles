@@ -33,8 +33,12 @@ in {
     line_numbers = true;
 
     font = {
-      family = builtins.elemAt osConfig.fonts.fontconfig.defaultFonts.sansSerif 0;
+      family = builtins.elemAt osConfig.fonts.fontconfig.defaultFonts.monospace 0;
       size = 11;
     };
+  };
+
+  home.shellAliases = {
+    freeze = "freeze -c user";
   };
 }
