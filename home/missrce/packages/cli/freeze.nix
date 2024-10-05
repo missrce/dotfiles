@@ -27,10 +27,10 @@ in {
     window = false;
     shadow = false;
     padding = [
+      10
       20
-      40
-      20
-      20
+      10
+      10
     ];
     margin = 0;
 
