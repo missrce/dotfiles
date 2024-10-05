@@ -1,5 +1,10 @@
-{config, lib, ...}: let
-  inherit (lib.modules) mkIf mkBefore;
+{
+  config,
+  lib,
+  ...
+}: let
+  inherit (lib.modules) mkBefore;
+  inherit (lib.lists) optionals;
 in {
   programs.bash = {
     enable = true;
@@ -11,7 +16,7 @@ in {
     initExtra = mkBefore ''
       if [[ $(tty) == /dev/pts/* ]]; then
         eval "$(${lib.getExe config.programs.starship.package} init bash)"
-        ${mkIf config.programs.atuin.enable "export ATUIN_NOBIND=\"true\""}
+        ${optionals config.programs.atuin.enable "export ATUIN_NOBIND=\"true\""}
       fi
       echo -ne "\e[5 q"
       unset SSH_AUTH_SOCK
