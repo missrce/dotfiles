@@ -24,14 +24,14 @@ in {
     secrets = {
       # Git secrets
 
-      git-ssh = mkSecret {
-        file = "keys/git/ssh";
+      vcs-ssh = mkSecret {
+        file = "keys/vcs/ssh";
         owner = mainUser;
         group = userGroup;
       };
 
-      git-gpg = mkSecret {
-        file = "keys/git/gpg";
+      vcs-gpg = mkSecret {
+        file = "keys/vcs/gpg";
         owner = mainUser;
         group = userGroup;
       };

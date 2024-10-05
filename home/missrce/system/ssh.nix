@@ -11,19 +11,19 @@ in {
       "github.com" = {
         user = "git";
         hostname = "github.com";
-        identityFile = secrets.git-ssh.path;
+        identityFile = secrets.vcs-ssh.path;
       };
 
       "git.sr.ht" = {
         user = "git";
         hostname = "git.sr.ht";
-        identityFile = secrets.git-ssh.path;
+        identityFile = secrets.vcs-ssh.path;
       };
 
       "gitlab.com" = {
         user = "git";
         hostname = "gitlab.com";
-        identityFile = secrets.git-ssh.path;
+        identityFile = secrets.vcs-ssh.path;
       };
     };
   };
