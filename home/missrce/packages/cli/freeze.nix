@@ -11,7 +11,7 @@ in {
   home.packages = [
     (pkgs.symlinkJoin {
       name = "freeze";
-      paths = builtins.attrValues { inherit (pkgs) charm-freeze librsvg; };
+      paths = builtins.attrValues {inherit (pkgs) charm-freeze librsvg;};
     })
   ];
 
@@ -33,8 +33,8 @@ in {
     line_numbers = true;
 
     font = {
-      family = builtins.elemAt osConfig.fonts.fontconfig.defaultFonts.monospace 0;
-      size = 14;
+      family = builtins.elemAt osConfig.fonts.fontconfig.defaultFonts.sansSerif 0;
+      size = 11;
     };
   };
 }
