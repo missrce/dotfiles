@@ -4,7 +4,7 @@
   osConfig,
   ...
 }: let
-  inherit (osConfig.catppuccin) sources flavor;
+  inherit (osConfig.catppuccin) sources flavor accent;
 
   palette = (lib.importJSON "${sources.palette}/palette.json").${flavor}.colors;
 in {
@@ -18,8 +18,13 @@ in {
   xdg.configFile."freeze/user.json".text = builtins.toJSON {
     theme = "catppuccin-${flavor}";
     background = palette.base.hex;
+    border = {
+      radius = 4;
+      width = 4;
+      color = palette.${accent}.hex;
+    };
 
-    window = true;
+    window = false;
     shadow = false;
     padding = [
       20
