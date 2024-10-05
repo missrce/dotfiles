@@ -9,6 +9,8 @@
   inherit (osConfig.catppuccin) sources flavor accent;
 
   palette = (lib.importJSON "${sources.palette}/palette.json").${flavor}.colors;
+
+  rgbString = colorSet: "rgb(${colorSet.rgb.r}, ${colorSet.rgb.g}, ${colorSet.rgb.b})";
 in {
   programs.hyprlock = mkIf (system.interface.graphical && environment.desktop == "Hyprland") {
     enable = true;
@@ -16,14 +18,14 @@ in {
     settings = {
       background = [
         {
-          color = palette.base;
+          color = rgbString palette.base;
         }
       ];
 
       input-field = [
         {
-          placeholder_text = ":3";
-          fail_text = "$FAIL";
+          placeholder_text = "<i>:3</i>";
+          fail_text = "<i>$FAIL <b>($ATTEMPTS)</b></i>";
           fail_timeout = 500;
 
           size = "400, 50";
@@ -35,11 +37,11 @@ in {
           dots_center = true;
           dots_size = 0.2;
           fade_on_empty = true;
-          outer_color = palette.${accent};
-          inner_color = palette.surface0;
-          font_color = palette.text;
-          check_color = palette.peach;
-          fail_color = palette.red;
+          outer_color = rgbString palette.${accent};
+          inner_color = rgbString palette.surface0;
+          font_color = rgbString palette.text;
+          check_color = rgbString palette.peach;
+          fail_color = rgbString palette.red;
         }
       ];
     };
