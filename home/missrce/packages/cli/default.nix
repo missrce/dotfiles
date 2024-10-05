@@ -1,6 +1,7 @@
 {
   imports = [
     ./shell # different shells
-    ./atuin.nix # Shell history
+    ./bat.nix # cat with syntax highlighting
+    ./atuin.nix # shell history
   ];
 }
