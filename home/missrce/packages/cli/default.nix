@@ -18,6 +18,7 @@ in {
     ./fd.nix # user-friendly find
     ./freeze.nix # turn yo terminal and code into SVGs
     ./fzf.nix # command-line fuzzy finder
+    ./eza.nix
   ];
 
   home.packages = mkIf system.interface.graphical (
