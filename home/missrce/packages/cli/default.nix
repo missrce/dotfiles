@@ -20,6 +20,7 @@ in {
     ./fzf.nix # command-line fuzzy finder
     ./eza.nix # modern reimplementation of ls
     ./zoxide.nix # smarter cd
+    ./ripgrep.nix # modern grep
   ];
 
   home.packages = mkIf system.interface.graphical (
