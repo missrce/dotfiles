@@ -22,7 +22,7 @@ in {
   home.packages = mkIf system.interface.graphical (
     mkMerge [
       # Packages for all graphical environments
-      [pkgs.libnotify]
+      [pkgs.libnotify pkgs.brightnessctl]
 
       # Additional packages for WM environments
       (lib.mkIf environment.isWM [
