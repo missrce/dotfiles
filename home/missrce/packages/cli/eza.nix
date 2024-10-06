@@ -11,4 +11,8 @@
       "--octal-permissions"
     ];
   };
+
+  home.shellAliases = {
+    ls = "eza";
+  };
 }

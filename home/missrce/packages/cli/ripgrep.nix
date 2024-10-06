@@ -10,4 +10,8 @@
       "--smart-case"
     ];
   };
+
+  home.shellAliases = {
+    grep = "rg";
+  };
 }
