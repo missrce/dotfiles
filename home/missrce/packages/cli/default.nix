@@ -12,6 +12,7 @@ in {
     ./shell # different shells
 
     ./atuin.nix # shell history
+    ./direnv.nix # manage your shell env based on repo
     ./hyfetch.nix # I use NixOS btw,
     ./bat.nix # cat with syntax highlighting
     ./fd.nix # user-friendly find
