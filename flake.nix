@@ -99,6 +99,19 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # free wallpaper storage :100::money_mouth::fire:
+
+    wallpkgs = {
+      type = "github";
+      owner = "NotAShelf"; # urm ackshually you are
+      repo = "wallpkgs";
+
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        systems.follows = "systems";
+      };
+    };
+
     # manage disk partition layouts declaratively
 
     disko = {
