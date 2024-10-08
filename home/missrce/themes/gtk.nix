@@ -36,6 +36,8 @@ in {
         enable = true;
         icon.enable = true;
         tweaks = ["float"];
+
+        gnomeShellTheme = true;
       };
 
       font = {
@@ -55,8 +57,6 @@ in {
 
       gtk3.extraConfig = {
         # make things look nice
-        gtk-application-prefer-dark-theme = true;
-
         gtk-decoration-layout = "appmenu:none";
 
         gtk-xft-antialias = 1;
@@ -78,8 +78,6 @@ in {
 
       gtk4.extraConfig = {
         # make things look nice
-        gtk-application-prefer-dark-theme = true;
-
         gtk-decoration-layout = "appmenu:none";
 
         gtk-xft-antialias = 1;
