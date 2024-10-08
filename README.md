@@ -23,6 +23,10 @@ All entries are case-insensitive, well apart from booleans but come on that's co
   environment = {
     desktop = "";
     loginManager = "";
+    games = {
+      steam = boolean;
+      minecraft = boolean;
+    };
   };
 }
 ```
