@@ -23,6 +23,7 @@
       defaultFonts = {
         sansSerif = ["Inter Variable" "Inter Variable Regular" "Inter" "Inter Regular" "Cantarell" "DejaVu Sans"];
         monospace = ["CommitMono Nerd Font" "CommitMono" "DejaVu Sans Mono"];
+        emoji = ["Noto Color Emoji"];
       };
     };
   };
