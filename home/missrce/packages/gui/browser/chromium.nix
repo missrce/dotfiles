@@ -21,10 +21,12 @@ in {
       "emffkefkbkpkgpdeeooapgaicgmcbolj" # Wikiwand
       "ngonfifpkpeefnhelnfdkficaiihklid" # ProtonDB
       "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
-      {
-        id = "bhemdfncmhpcjlhejcneidchipcelbho";
-        updateUrl = "https://raw.githubusercontent.com/missrce/unsuggestive-suggestions/refs/heads/main/updates.xml";
-      } # Unsuggestive Suggestions
+      "${pkgs.fetchFromGitHub {
+        owner = "Jack5079";
+        repo = "unsuggestive-suggestions";
+        rev = "2503c6ee3fec388dbf9211b896cfc1280a984972";
+        hash = "sha256-VqeNRwYusM1WkORUQP/VoAVRlt+PrmcQ2qKbZPt1tqo=";
+      }}" # Unsuggestive Suggestions
     ];
 
     package = pkgs.chromium.override {
