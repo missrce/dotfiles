@@ -8,7 +8,7 @@
   inherit (lib.lists) concatLists;
   inherit (lib.strings) concatMapStrings;
 in {
-  programs.chromium = mkIf osConfig.missos.programs.browser.chromium.enable {
+  programs.chromium = mkIf osConfig.missos.programs.browser.chromium {
     enable = true;
 
     extensions = [
