@@ -20,13 +20,19 @@ All entries are case-insensitive, well apart from booleans but come on that's co
     hasBluetooth = boolean;
     hasSound = boolean;
   };
-  environment = {
-    desktop = "";
-    loginManager = "";
+  programs = {
+    browser = {
+      chromium = boolean;
+      firefox = boolean;
+    };
     games = {
       steam = boolean;
       minecraft = boolean;
     };
+  };
+  environment = {
+    desktop = "";
+    loginManager = "";
   };
 }
 ```
