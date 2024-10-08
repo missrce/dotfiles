@@ -23,7 +23,7 @@ in {
       "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
     ];
 
-    package = pkgs.ungoogled-chromium {
+    package = pkgs.ungoogled-chromium.override {
       enableWideVine = true;
 
       # https://github.com/secureblue/hardened-chromium
