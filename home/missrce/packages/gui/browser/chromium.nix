@@ -21,9 +21,13 @@ in {
       "emffkefkbkpkgpdeeooapgaicgmcbolj" # Wikiwand
       "ngonfifpkpeefnhelnfdkficaiihklid" # ProtonDB
       "dnhpnfgdlenaccegplpojghhmaamnnfp" # Augmented Steam
+      {
+        id = "bhemdfncmhpcjlhejcneidchipcelbho";
+        updateUrl = "https://raw.githubusercontent.com/missrce/unsuggestive-suggestions/refs/heads/main/updates.xml";
+      } # Unsuggestive Suggestions
     ];
 
-    package = pkgs.ungoogled-chromium.override {
+    package = pkgs.chromium.override {
       enableWideVine = true;
 
       # https://github.com/secureblue/hardened-chromium
