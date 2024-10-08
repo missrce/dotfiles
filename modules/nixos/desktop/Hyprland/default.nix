@@ -1,5 +1,14 @@
-{inputs', ...}: {
-  config = {
+{
+  inputs',
+  config,
+  lib,
+  ...
+}: let
+  inherit (lib.modules) mkIf;
+
+  inherit (config.missos.environment) desktop;
+in {
+  config = mkIf (desktop == "Hyprland") {
     programs.hyprland = {
       enable = true;
       package = inputs'.hyprland.packages.hyprland;

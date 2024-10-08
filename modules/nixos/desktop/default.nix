@@ -10,18 +10,20 @@
 in {
   imports = [
     ./Hyprland
+    ./GNOME
   ];
 
   options.missos.environment = {
     desktop = mkOption {
       type = nullOr (enum [
         "none"
+        "GNOME"
         "Hyprland"
         "sway"
       ]);
       default =
         if config.missos.system.interface.graphical
-        then "Hyprland"
+        then "GNOME"
         else "none";
       description = "The desktop to be used by the system.";
     };
