@@ -1,3 +1,3 @@
 {lib, ...}: {
-  boot.supportedFilesystems = lib.modules.mkForce ["ext4" "btrfs" "vfat" "ntfs"];
+  boot.supportedFilesystems.zfs.enable = lib.modules.mkForce false;
 }
