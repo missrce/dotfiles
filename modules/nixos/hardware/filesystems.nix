@@ -1,3 +1,3 @@
 {lib, ...}: {
-  boot.supportedFilesystems.zfs.enable = lib.modules.mkForce false;
+  boot.supportedFilesystems.zfs = lib.modules.mkForce false;
 }
