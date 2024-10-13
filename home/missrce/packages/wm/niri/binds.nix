@@ -45,7 +45,7 @@ in
     # Window controls
     "Mod+W".action = close-window;
     "Mod+F".action = maximize-column;
-    "Mod+Shift+F".action = maximize-window;
+    "Mod+Shift+F".action = fullscreen-window;
     "Mod+Comma".action = consume-window-into-column;
     "Mod+Period".action = expel-window-from-column;
 

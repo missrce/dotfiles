@@ -1,8 +1,7 @@
 {
   imports = [
-    ./browser # Get those web browsers, we must be chronically online!
-    ./terminals # Terminal emulators
-    ./launchers # Launchers for applications
-    ./wm # Configure the desktop experience
+    ./browser # get those web browsers, we must be chronically online!
+    ./terminals # terminal emulators
+    ./launchers # launchers for applications
   ];
 }
