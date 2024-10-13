@@ -51,6 +51,12 @@ in
     "Mod+Up".action = move-window-up;
     "Mod+Down".action = move-window-down;
 
+    "Mod+Shift+Left".action = focus-column-left;
+    "Mod+Shift+Right".action = focus-column-right;
+
+    "Mod+Home".action = focus-column-first;
+    "Mod+End".action = focus-column-last;
+
     # Power controls
     "Mod+Shift+E".action = quit;
     "Mod+Shift+P".action = power-off-monitors;
