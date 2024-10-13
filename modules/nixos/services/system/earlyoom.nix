@@ -22,7 +22,6 @@ in {
           "cryptsetup"
           "dbus-.*"
           "gpg-agent"
-          "greetd"
           "ssh-agent"
           ".*qemu-system.*"
           "sddm"

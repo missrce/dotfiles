@@ -6,16 +6,16 @@ in {
   imports = [
     ./xterm-inator.nix # I am so unironically unfunny
     ./autologin.nix
-    ./gdm.nix
+    ./sddm.nix
   ];
 
   options.missos.environment.loginManager = mkOption {
     type = nullOr (enum [
       "autologin"
       "getty"
-      "gdm"
+      "sddm"
     ]);
-    default = "gdm";
+    default = "sddm";
     description = "The display manager to be used by the system.";
   };
 
