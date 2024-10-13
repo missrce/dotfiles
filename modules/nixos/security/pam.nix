@@ -19,7 +19,7 @@
 
     # allow screen lockers to also unlock the screen
     services = {
-      hyprlock.text = "auth include login";
+      # hyprlock.text = "auth include login";
     };
   };
 }
