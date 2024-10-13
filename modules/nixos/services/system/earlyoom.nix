@@ -17,7 +17,7 @@ in {
       freeMemThreshold = 2;
       extraArgs = let
         avoid = concatStringsSep "|" [
-          "(h|H)yprland"
+          "niri"
           "sway"
           "Xwayland"
           "cryptsetup"
