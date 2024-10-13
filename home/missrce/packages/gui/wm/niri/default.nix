@@ -13,7 +13,7 @@ in {
       prefer-no-csd = true;
       screenshot-path = "${config.xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR}";
 
-      focus-follows-mouse.enable = true;
+      input = {focus-follows-mouse.enable = true;};
       binds = import ./binds.nix {inherit config pkgs lib;};
     };
   };
