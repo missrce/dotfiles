@@ -3,7 +3,8 @@
   pkgs,
   lib,
   ...
-}: with config.lib.niri.actions; {
+}:
+with config.lib.niri.actions; {
   # Workspaces
   "Mod+1".action = focus-workspace 1;
   "Mod+2".action = focus-workspace 2;
@@ -18,6 +19,44 @@
 
   "Alt+T".action = spawn "${lib.getExe pkgs.foot}";
 
-  "XF86AudioRaiseVolume".action = spawn "${lib.getExe' pkgs.wireplumber "wpctl"}" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
-  "XF86AudioLowerVolume".action = spawn "${lib.getExe' pkgs.wireplumber "wpctl"}" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
+  # Volume keys
+
+  "XF86AudioRaiseVolume" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.wireplumber "wpctl"}" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
+  };
+  "XF86AudioLowerVolume" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.wireplumber "wpctl"}" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-";
+  };
+  "XF86AudioMute" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.wireplumber "wpctl"}" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle";
+  };
+  "XF86AudioMicMute" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.wireplumber "wpctl"}" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle";
+  };
+
+  # Player keys
+  "XF86AudioPlay" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.playerctl}" "play-pause";
+  };
+  "XF86AudioPause" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.playerctl}" "play-pause";
+  };
+  "XF86AudioStop" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.playerctl}" "stop";
+  };
+  "XF86AudioNext" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.playerctl}" "next";
+  };
+  "XF86AudioPrev" = {
+    allow-when-locked = true;
+    action = spawn "${lib.getExe' pkgs.playerctl}" "previous";
+  };
 }
