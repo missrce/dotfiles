@@ -21,10 +21,8 @@ All entries are case-insensitive, well apart from booleans but come on that's co
     hasSound = boolean;
   };
   programs = {
-    browser = {
-      chromium = boolean;
-      firefox = boolean;
-    };
+    browser = "";
+    launcher = "";
     terminal = "";
     games = {
       steam = boolean;

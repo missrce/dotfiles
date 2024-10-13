@@ -15,7 +15,7 @@
       hasTPM = true;
     };
     programs = {
-      browser.chromium = true;
+      browser = "chromium";
       launcher = "fuzzel";
       terminal = "foot";
     };

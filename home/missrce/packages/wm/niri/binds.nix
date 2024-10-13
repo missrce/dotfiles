@@ -80,6 +80,7 @@ in
 
     # Applications
     "Alt+T".action = spawn "${lib.getExe config.programs.${osConfig.missos.programs.terminal}.package}";
+    "Alt+Q".action = spawn "${lib.getExe config.programs.${osConfig.missos.programs.browser}.package}";
     "Mod+D".action = spawn "${lib.getExe config.programs.${osConfig.missos.programs.launcher}.package}";
 
     # Volume keys
