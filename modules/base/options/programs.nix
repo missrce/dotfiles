@@ -7,6 +7,12 @@ in {
       chromium = mkEnableOption "Chromium browser";
       firefox = mkEnableOption "Mozilla Firefox browser";
     };
+    launcher = mkOption {
+      type = enum [
+        "fuzzel"
+      ];
+      default = "fuzzel";
+    };
     terminal = mkOption {
       type = enum [
         "foot"

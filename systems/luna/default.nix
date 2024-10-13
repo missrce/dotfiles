@@ -16,6 +16,7 @@
     };
     programs = {
       browser.chromium = true;
+      launcher = "fuzzel";
       terminal = "foot";
     };
     system = {
