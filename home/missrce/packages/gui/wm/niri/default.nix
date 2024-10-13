@@ -4,12 +4,12 @@
   config,
   lib,
   ...
-}@attrs: let
+} @ attrs: let
   inherit (lib.modules) mkIf;
   inherit (osConfig.missos.environment) desktop;
 in {
-  imports = [inputs.homeModules.niri];
-  
+  imports = [inputs.niri.homeModules.niri];
+
   programs.niri = mkIf (desktop == "niri") {
     settings = {
       prefer-no-csd = true;
