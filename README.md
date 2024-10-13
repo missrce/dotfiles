@@ -25,6 +25,7 @@ All entries are case-insensitive, well apart from booleans but come on that's co
       chromium = boolean;
       firefox = boolean;
     };
+    terminal = "";
     games = {
       steam = boolean;
       minecraft = boolean;
