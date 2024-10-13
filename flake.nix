@@ -51,15 +51,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # free wallpaper storage :100::money_mouth::fire:
-    wallpkgs = {
-      url = "github:NotAShelf/wallpkgs";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        systems.follows = "systems";
-      };
-    };
-
     # manage disk partition layouts
     disko = {
       url = "github:nix-community/disko";
@@ -76,6 +67,16 @@
         flake-parts.follows = "flake-parts";
         pre-commit-hooks-nix.follows = "";
         flake-compat.follows = "";
+      };
+    };
+
+    # niri WM
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        nixpkgs-stable.follows = "nixpkgs";
+        flake-parts.follows = "flake-parts";
       };
     };
 
