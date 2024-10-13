@@ -32,6 +32,8 @@
       # Experimental and only works on modern Nvidia GPUs (Turing or newer).
       powerManagement.finegrained = true;
 
+      open = true; # Enable the open source kernel modules
+
       prime = {
         offload = {
           enable = true;
