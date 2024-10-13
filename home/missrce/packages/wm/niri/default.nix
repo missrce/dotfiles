@@ -13,7 +13,7 @@ in {
       prefer-no-csd = true;
       screenshot-path = "${config.xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR}/screenshot-%d-%m-%Y-%H:%M:%S.png";
 
-      input = {focus-follows-mouse.enable = true;};
+      input = import ./input.nix;
       binds = import ./binds.nix {inherit osConfig config pkgs lib;};
     };
   };
