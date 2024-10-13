@@ -19,11 +19,22 @@ in
     "Mod+9".action = focus-workspace 9;
     "Mod+0".action = focus-workspace 10;
 
-    # Window state controls
+    # Window controls
     "Mod+W".action = close-window;
-    "Mod+F".action = fullscreen-window;
+    "Mod+F".action = maximize-column;
     "Mod+Comma".action = consume-window-into-column;
     "Mod+Period".action = expel-window-from-column;
+
+    "Mod+Minus".action = set-column-width "-10%";
+    "Mod+Equal".action = set-column-width "+10%";
+
+    "Mod+Shift+Minus".action = set-window-height "-10%";
+    "Mod+Shift+Equal".action = set-window-height "+10%";
+
+    # Screenshot
+    "Print".action = screenshot-screen;
+    "Mod+Print".action = screenshot-screen;
+    "Mod+Shift+Print".action = screenshot-window;
 
     # Applications
     "Alt+T".action = spawn "${lib.getExe pkgs.foot}";
