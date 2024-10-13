@@ -1,4 +1,5 @@
 {
+  inputs,
   inputs',
   config,
   lib,
@@ -7,7 +8,13 @@
   inherit (lib.modules) mkIf;
   inherit (config.missos.environment) desktop;
 in {
-  config = mkIf (desktop == "niri") {
+  imports = [
+    inputs.niri.nixosModules.niri
+  ];
+
+  config = {
+    niri-flake.cache.enable = false;
+  } // mkIf (desktop == "niri") {
     programs.niri = {
       enable = true;
       package = inputs'.niri.packages.niri-unstable;

@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   lib,
   ...
@@ -10,13 +9,8 @@
   cfg = config.missos.environment;
 in {
   imports = [
-    inputs.niri.nixosModules.niri
     ./niri
   ];
-
-  config = {
-    niri-flake.cache.enable = false;
-  };
 
   options.missos.environment = {
     desktop = mkOption {
