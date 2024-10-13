@@ -1,6 +1,5 @@
 {
   osConfig,
-  inputs,
   config,
   lib,
   ...
@@ -8,12 +7,10 @@
   inherit (lib.modules) mkIf;
   inherit (osConfig.missos.environment) desktop;
 in {
-  imports = [inputs.niri.homeModules.niri];
-
   programs.niri = mkIf (desktop == "niri") {
     settings = {
       prefer-no-csd = true;
-      screenshot-path = "${config.xdg.userDirs.extraConfig.XDG_SCREENSHOT_DIR}";
+      screenshot-path = "${config.xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR}";
 
       binds = import ./binds.nix attrs;
     };
