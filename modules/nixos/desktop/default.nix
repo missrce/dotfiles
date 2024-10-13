@@ -10,6 +10,7 @@
 in {
   imports = [
     ./niri
+    ./GNOME
   ];
 
   options.missos.environment = {
