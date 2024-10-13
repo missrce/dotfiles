@@ -1,10 +1,12 @@
 [
   {
-    geometry-corner-radius = {
-      top-left = 4;
-      bottom-left = 4;
-      top-right = 4;
-      bottom-right = 4;
+    geometry-corner-radius = let
+      px = 10.0;
+    in {
+      bottom-left = px;
+      bottom-right = px;
+      top-left = px;
+      top-right = px;
     };
     clip-to-geometry = true;
   }
