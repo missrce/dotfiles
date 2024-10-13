@@ -19,12 +19,11 @@ in {
       };
     };
     systemd.user.services.clear-clipboard = {
-      description = "Clear clipboard history on boot";
-      wantedBy = ["multi-user.target"];
-      serviceConfig = {
+      Unit.Description = "Clipboard history service";
+      Service = {
         Type = "oneshot";
         ExecStart = "${getExe pkgs.cliphist} wipe";
-        RemainAfterExit = "yes";
+        RemainAfterExit = "no";
       };
     };
   };
