@@ -14,7 +14,9 @@ in {
     ./niri
   ];
 
-  niri-flake.cache.enable = false;
+  config = {
+    niri-flake.cache.enable = false;
+  };
 
   options.missos.environment = {
     desktop = mkOption {
