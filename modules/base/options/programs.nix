@@ -11,6 +11,7 @@ in {
       type = enum [
         "foot"
       ];
+      default = "foot";
     };
   };
 }

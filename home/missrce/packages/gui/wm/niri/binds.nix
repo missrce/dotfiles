@@ -1,4 +1,5 @@
 {
+  osConfig,
   config,
   pkgs,
   lib,
@@ -37,7 +38,7 @@ in
     "Mod+Shift+Print".action = screenshot-window;
 
     # Applications
-    "Alt+T".action = spawn "${lib.getExe pkgs.foot}";
+    "Alt+T".action = spawn "${lib.getExe programs.${osConfig.missos.programs.terminal}.package}";
 
     # Volume keys
 
