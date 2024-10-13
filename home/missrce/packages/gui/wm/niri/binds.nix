@@ -34,7 +34,7 @@ in
 
     # Screenshot
     "Print".action = screenshot-screen;
-    "Mod+Print".action = screenshot-screen;
+    "Mod+Print".action = screenshot;
     "Mod+Shift+Print".action = screenshot-window;
 
     # Applications
