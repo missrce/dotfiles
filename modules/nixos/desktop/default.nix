@@ -9,21 +9,18 @@
   cfg = config.missos.environment;
 in {
   imports = [
-    ./Hyprland
-    ./GNOME
   ];
 
   options.missos.environment = {
     desktop = mkOption {
       type = nullOr (enum [
         "none"
-        "GNOME"
-        "Hyprland"
+        "niri"
         "sway"
       ]);
       default =
         if config.missos.system.interface.graphical
-        then "GNOME"
+        then "niri"
         else "none";
       description = "The desktop to be used by the system.";
     };

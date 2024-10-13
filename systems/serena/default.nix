@@ -5,7 +5,7 @@
 
   missos = {
     environment = {
-      desktop = "Hyprland";
+      desktop = "niri";
       loginManager = "getty";
     };
     device = {
