@@ -1,9 +1,10 @@
 {
   osConfig,
   config,
+  pkgs,
   lib,
   ...
-} @ attrs: let
+}: let
   inherit (lib.modules) mkIf;
   inherit (osConfig.missos.environment) desktop;
 in {
@@ -12,7 +13,7 @@ in {
       prefer-no-csd = true;
       screenshot-path = "${config.xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR}";
 
-      binds = import ./binds.nix attrs;
+      binds = import ./binds.nix {inherit config pkgs lib;};
     };
   };
 }
