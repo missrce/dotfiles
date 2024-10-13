@@ -18,5 +18,14 @@ in {
         Restart = "always";
       };
     };
+    systemd.user.services.clear-clipboard = {
+      description = "Clear clipboard history on boot";
+      wantedBy = ["multi-user.target"];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${getExe pkgs.cliphist} wipe";
+        RemainAfterExit = "yes";
+      };
+    };
   };
 }
