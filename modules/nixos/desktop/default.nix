@@ -16,11 +16,12 @@ in {
     desktop = mkOption {
       type = nullOr (enum [
         "none"
+        "GNOME"
         "niri"
       ]);
       default =
         if config.missos.system.interface.graphical
-        then "niri"
+        then "GNOME"
         else "none";
       description = "The desktop to be used by the system.";
     };
