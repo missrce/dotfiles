@@ -5,7 +5,7 @@
 
   missos = {
     environment = {
-      desktop = "niri";
+      desktop = "GNOME";
       loginManager = "sddm";
     };
     device = {
