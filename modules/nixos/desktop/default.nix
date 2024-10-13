@@ -16,7 +16,6 @@ in {
       type = nullOr (enum [
         "none"
         "niri"
-        "sway"
       ]);
       default =
         if config.missos.system.interface.graphical
@@ -28,7 +27,7 @@ in {
     isWM =
       mkEnableOption "Inferred based on the desktop environment."
       // {
-        default = cfg.desktop == "Hyprland" || cfg.desktop == "sway";
+        default = cfg.desktop == "niri";
       };
   };
 }

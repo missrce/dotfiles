@@ -18,7 +18,6 @@ in {
       extraArgs = let
         avoid = concatStringsSep "|" [
           "niri"
-          "sway"
           "Xwayland"
           "cryptsetup"
           "dbus-.*"
