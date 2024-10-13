@@ -1,5 +1,6 @@
 {
   modulesPath,
+  inputs,
   config,
   pkgs,
   lib,
@@ -7,6 +8,8 @@
 }: {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.disko.nixosModules.disko
+    ./disko.nix
   ];
 
   zramSwap.enable = true;
