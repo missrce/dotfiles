@@ -14,7 +14,7 @@ in {
       screenshot-path = "${config.xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR}";
 
       input = {focus-follows-mouse.enable = true;};
-      binds = import ./binds.nix {inherit config pkgs lib;};
+      binds = import ./binds.nix {inherit osConfig config pkgs lib;};
     };
   };
 }
