@@ -6,7 +6,7 @@
   missos = {
     environment = {
       desktop = "GNOME";
-      loginManager = "sddm";
+      loginManager = "gdm";
     };
     device = {
       type = "laptop";
