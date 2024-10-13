@@ -1,6 +1,3 @@
-{
-  osConfig,
-  ...
-}: {
-  programs.fuzzel.enable = osConfig.missos.programs.terminal == "fuzzel";
+{osConfig, ...}: {
+  programs.fuzzel.enable = osConfig.missos.programs.launcher == "fuzzel";
 }
