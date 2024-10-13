@@ -31,8 +31,6 @@ in
     "Mod+Shift+8".action = move-window-to-workspace 8;
     "Mod+Shift+9".action = move-window-to-workspace 9;
     "Mod+Shift+0".action = move-window-to-workspace 10;
-    "Mod+Shift+Up".action = move-window-up;
-    "Mod+Shift+Down".action = move-window-down;
 
     # Workspace column movement
     "Mod+Ctrl+1".action = move-column-to-workspace 1;
@@ -46,16 +44,15 @@ in
     "Mod+Ctrl+9".action = move-column-to-workspace 9;
     "Mod+Ctrl+0".action = move-column-to-workspace 10;
 
-    "Mod+Left".action = move-column-left;
-    "Mod+Right".action = move-column-right;
-    "Mod+Up".action = move-window-up;
-    "Mod+Down".action = move-window-down;
+    "Mod+Left".action = focus-column-left;
+    "Mod+Right".action = focus-column-right;
+    "Mod+Up".action = focus-window-up;
+    "Mod+Down".action = focus-window-down;
 
-    "Mod+Shift+Left".action = focus-column-left;
-    "Mod+Shift+Right".action = focus-column-right;
-
-    "Mod+Home".action = focus-column-first;
-    "Mod+End".action = focus-column-last;
+    "Mod+Shift+Left".action = move-column-left;
+    "Mod+Shift+Right".action = move-column-right;
+    "Mod+Shift+Up".action = move-window-up;
+    "Mod+Shift+Down".action = move-window-down;
 
     # Power controls
     "Mod+Shift+E".action = quit;
