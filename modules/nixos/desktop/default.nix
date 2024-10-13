@@ -9,6 +9,7 @@
   cfg = config.missos.environment;
 in {
   imports = [
+    ./niri
   ];
 
   options.missos.environment = {
