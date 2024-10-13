@@ -19,6 +19,7 @@ in
     "Mod+8".action = focus-workspace 8;
     "Mod+9".action = focus-workspace 9;
     "Mod+0".action = focus-workspace 10;
+
     # Workspace window movement
     "Mod+Shift+1".action = move-window-to-workspace 1;
     "Mod+Shift+2".action = move-window-to-workspace 2;
@@ -30,6 +31,9 @@ in
     "Mod+Shift+8".action = move-window-to-workspace 8;
     "Mod+Shift+9".action = move-window-to-workspace 9;
     "Mod+Shift+0".action = move-window-to-workspace 10;
+    "Mod+Shift+Left".action = move-window-left;
+    "Mod+Shift+Right".action = move-window-right;
+
     # Workspace column movement
     "Mod+Ctrl+1".action = move-column-to-workspace 1;
     "Mod+Ctrl+2".action = move-column-to-workspace 2;
@@ -41,6 +45,12 @@ in
     "Mod+Ctrl+8".action = move-column-to-workspace 8;
     "Mod+Ctrl+9".action = move-column-to-workspace 9;
     "Mod+Ctrl+0".action = move-column-to-workspace 10;
+    "Mod+Ctrl+Left".action = move-column-left;
+    "Mod+Ctrl+Right".action = move-column-right;
+
+    # Power controls
+    "Mod+Shift+E".action = quit;
+    "Mod+Shift+P".action = power-off-monitors;
 
     # Window controls
     "Mod+W".action = close-window;
@@ -48,6 +58,8 @@ in
     "Mod+Shift+F".action = fullscreen-window;
     "Mod+Comma".action = consume-window-into-column;
     "Mod+Period".action = expel-window-from-column;
+    "Mod+BracketLeft".action = consume-window-into-column-left;
+    "Mod+BracketRight".action = expel-window-from-column-right;
 
     "Mod+Minus".action = set-column-width "-10%";
     "Mod+Equal".action = set-column-width "+10%";
@@ -65,7 +77,6 @@ in
     "Mod+D".action = spawn "${lib.getExe config.programs.${osConfig.missos.programs.launcher}.package}";
 
     # Volume keys
-
     "XF86AudioRaiseVolume" = {
       allow-when-locked = true;
       action = spawn "${getExe' pkgs.wireplumber "wpctl"}" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+";
