@@ -6,6 +6,7 @@ in {
   imports = [
     ./xterm-inator.nix # I am so unironically unfunny
     ./autologin.nix
+    ./gdm.nix
     ./sddm.nix
   ];
 
@@ -13,9 +14,10 @@ in {
     type = nullOr (enum [
       "autologin"
       "getty"
+      "gdm"
       "sddm"
     ]);
-    default = "sddm";
+    default = "gdm";
     description = "The display manager to be used by the system.";
   };
 
