@@ -65,7 +65,7 @@ in
     "Mod+Comma".action = consume-window-into-column;
     "Mod+Period".action = expel-window-from-column;
     "Mod+BracketLeft".action = consume-or-expel-window-left;
-    "Mod+BracketRight".action = consume-or-expel-window-left;
+    "Mod+BracketRight".action = consume-or-expel-window-right;
 
     "Mod+Minus".action = set-column-width "-10%";
     "Mod+Equal".action = set-column-width "+10%";
