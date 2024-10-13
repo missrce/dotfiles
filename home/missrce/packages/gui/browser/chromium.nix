@@ -12,7 +12,7 @@ in {
     enable = true;
 
     extensions = [
-      "cjpalhdlnbpafiamejdnhcphjbkeiagm" # uBlock Origin
+      "ddkjiahejlhfcafbddmgiahcphecmpfh" # uBlock Origin Lite
       "pncfbmialoiaghdehhbnbhkkgmjanfhe" # uBlacklist
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
       "clngdbkpkpeebahjckkjfobafhncgmne" # Stylus
