@@ -14,6 +14,7 @@ in {
       screenshot-path = "${config.xdg.userDirs.extraConfig.XDG_SCREENSHOTS_DIR}/screenshot-%d-%m-%Y-%H:%M:%S.png";
 
       input = import ./input.nix;
+      layout = import ./layout.nix {inherit osConfig lib;};
       binds = import ./binds.nix {inherit osConfig config pkgs lib;};
     };
   };
