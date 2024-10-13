@@ -17,6 +17,13 @@ with config.lib.niri.actions; {
   "Mod+9".action = focus-workspace 9;
   "Mod+0".action = focus-workspace 10;
 
+  # Window state controls
+  "Mod+W".action = close-window;
+  "Mod+F".action = fullscreen-window;
+  "Mod+Comma".action = consume-window-into-column;
+  "Mod+Period".action = expel-window-from-column;
+
+  # Applications
   "Alt+T".action = spawn "${lib.getExe pkgs.foot}";
 
   # Volume keys
