@@ -6,5 +6,6 @@
     ./gpg.nix # gpg agent settings
     ./ssh.nix # ssh agent settings
     ./xdg.nix # xdg shenanigans
+    ./disks.nix # usermode disk stuff
   ];
 }
