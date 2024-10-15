@@ -10,7 +10,7 @@
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.disko.nixosModules.disko
-    ./disko.nix
+    ./raid2.nix
   ];
 
   zramSwap.enable = true;
