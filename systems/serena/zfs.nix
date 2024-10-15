@@ -79,7 +79,7 @@
     zpool = {
       zroot = {
         type = "zpool";
-        mode = "raid0";
+        mode = "raidz";
         rootFsOptions = {
           compression = "zstd";
           "com.sun:auto-snapshot" = "false";
