@@ -17,10 +17,6 @@
 
   services.xserver.videoDrivers = ["nvidia"];
 
-  environment.systemPackages = [
-    config.hardware.nvidia.package.lib32.bin
-  ];
-
   hardware = {
     nvidia = {
       # Modesetting is required.
