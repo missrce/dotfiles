@@ -2,7 +2,7 @@
   modulesPath,
   inputs,
   config,
-  pkgs',
+  self',
   pkgs,
   lib,
   ...
@@ -55,7 +55,7 @@
     };
   };
 
-  environment.systemPackages = [pkgs'.nvidia-offload];
+  environment.systemPackages = [self'.packages.nvidia-offload];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
