@@ -1,8 +1,13 @@
-{ lib, pkgs, ... }: {
-  "workbench.colorTheme" = "Catppuccin Mocha";
-  "workbench.iconTheme" = "catppuccin-mocha";
+{ osConfig, pkgs, lib, ... }: let
+  inherit (lib.strings) toUpper;
+  inherit (lib.meta) getExe;
+
+  inherit (osConfig.catppuccin) flavor;
+in {
+  "workbench.colorTheme" = "Catppuccin ${(toUpper builtins.substring 0 1 flavor) + builtins.substring 1 (builtins.stringLength flavor) flavor}";
+  "workbench.iconTheme" = "catppuccin-${flavor}";
   "github.gitAuthentication" = false;
-  "terminal.integrated.fontFamily" = "'MonaspiceNe Nerd Font', 'DejaVu Sans Mono'";
+  "terminal.integrated.fontFamily" = builtins.concatStringsSep ", " (map (font: "'${font}'") osConfig.fonts.fontconfig.defaultFonts.monospace);
   "editor.cursorBlinking" = "expand";
   "editor.cursorSmoothCaretAnimation" = "on";
   "terminal.integrated.cursorBlinking" = true;
@@ -103,8 +108,8 @@
     "editor.defaultFormatter" = "vscode.css-language-features";
   };
   "nix.enableLanguageServer" = true;
-  "nix.serverPath" = "${lib.getExe pkgs.nil}";
-  "nix.formatterPath" = "${lib.getExe pkgs.nixpkgs-fmt}";
+  "nix.serverPath" = "${getExe pkgs.nil}";
+  "nix.formatterPath" = "${getExe pkgs.nixpkgs-fmt}";
   "accessibility.signals.terminalBell" = {
     "sound" = "on";
   };

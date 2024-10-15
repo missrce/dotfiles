@@ -3,6 +3,7 @@
   lib,
   ...
 }: let
+  inherit (lib.meta) getExe;
   inherit (lib.modules) mkBefore;
   inherit (lib.strings) optionalString;
 in {
@@ -16,7 +17,7 @@ in {
     initExtra = mkBefore ''
       ${optionalString config.programs.atuin.enable "export ATUIN_NOBIND=\"true\""}
       if [[ $(tty) == /dev/pts/* ]]; then
-        eval "$(${lib.getExe config.programs.starship.package} init bash)"
+        eval "$(${getExe config.programs.starship.package} init bash)"
         ${optionalString config.programs.atuin.enable "unset ATUIN_NOBIND"}
       fi
       echo -ne "\e[5 q"

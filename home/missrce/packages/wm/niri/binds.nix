@@ -85,9 +85,9 @@ in
     "Mod+Shift+Print".action = screenshot-window;
 
     # Applications
-    "Alt+T".action = spawn "${lib.getExe config.programs.${osConfig.missos.programs.terminal}.package}";
-    "Alt+Q".action = spawn "${lib.getExe config.programs.${osConfig.missos.programs.browser}.package}";
-    "Mod+D".action = spawn "${lib.getExe config.programs.${osConfig.missos.programs.launcher}.package}";
+    "Alt+T".action = spawn "${getExe config.programs.${osConfig.missos.programs.terminal}.package}";
+    "Alt+Q".action = spawn "${getExe config.programs.${osConfig.missos.programs.browser}.package}";
+    "Mod+D".action = spawn "${getExe config.programs.${osConfig.missos.programs.launcher}.package}";
 
     # Volume keys
     "XF86AudioRaiseVolume" = {
