@@ -1,6 +1,11 @@
-{
+{config, ...}: {
   # systemd DNS resolver daemon
-  services.resolved.enable = true;
+  services.resolved = {
+    enable = true;
+    dnsovertls = "true";
+    dnssec = "true";
+    fallbackDns = config.networking.nameservers;
+  };
 
   systemd = {
     # allow for the system to boot without waiting for the network interfaces are online
