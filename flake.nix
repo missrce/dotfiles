@@ -80,7 +80,7 @@
       };
     };
 
-    # vscode extensions
+    # vscode extensions (they use flake-utils so as a reminder in future if any other input uses it make sure to follow it)
     vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs = {
