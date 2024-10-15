@@ -8,6 +8,7 @@ in {
   imports = [
     ./firewall
     ./nm.nix
+    ./vpn.nix
     ./tcp.nix
     ./ssh.nix
     ./systemd.nix
