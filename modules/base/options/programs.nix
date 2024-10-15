@@ -1,25 +1,25 @@
 {lib, ...}: let
-  inherit (lib.types) enum;
+  inherit (lib.types) nullOr enum;
   inherit (lib.options) mkOption;
 in {
   options.missos.programs = {
     browser = mkOption {
-      type = enum [
+      type = nullOr (enum [
         "chromium"
         "firefox"
-      ];
+      ]);
       default = "chromium";
     };
     launcher = mkOption {
-      type = enum [
+      type = nullOr (enum [
         "fuzzel"
-      ];
+      ]);
       default = "fuzzel";
     };
     terminal = mkOption {
-      type = enum [
+      type = nullOr (enum [
         "foot"
-      ];
+      ]);
       default = "foot";
     };
   };
