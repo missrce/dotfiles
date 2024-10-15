@@ -11,7 +11,8 @@ in {
   imports = [
     ./shell # different shells
 
-    ./git.nix # add git
+    ./git.nix # the only version control system totally
+    ./micro.nix # text editor nano but normal
     ./atuin.nix # shell history
     ./direnv.nix # manage your shell env based on repo
     ./hyfetch.nix # I use NixOS btw,
