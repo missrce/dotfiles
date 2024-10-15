@@ -88,6 +88,7 @@ in
     "Alt+T".action = spawn "${getExe config.programs.${osConfig.missos.programs.terminal}.package}";
     "Alt+Q".action = spawn "${getExe config.programs.${osConfig.missos.programs.browser}.package}";
     "Mod+D".action = spawn "${getExe config.programs.${osConfig.missos.programs.launcher}.package}";
+    "Mod+V".action = spawn "${getExe pkgs.cliphist} list | ${getExe config.programs.${osConfig.missos.programs.launcher}.package} -d | ${getExe pkgs.cliphist} decode | ${getExe' pkgs.wl-clipboard "wl-copy"}";
 
     # Volume keys
     "XF86AudioRaiseVolume" = {
