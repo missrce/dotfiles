@@ -1,10 +1,9 @@
 {
-  lib,
   pkgs,
   config,
   ...
 }: let
-  inherit (lib.modules) mkForce;
+  # inherit (lib.modules) mkForce;
   inherit (config.missos) device;
 in {
   imports = [./fail2ban.nix];
@@ -32,7 +31,7 @@ in {
       logRefusedConnections = false;
 
       # Don't filter DHCP packets, according to nixops-libvirtd
-      checkReversePath = mkForce false;
+      # checkReversePath = mkForce false;
     };
   };
 }
