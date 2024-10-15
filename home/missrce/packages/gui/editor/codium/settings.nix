@@ -4,7 +4,7 @@
 
   inherit (osConfig.catppuccin) flavor;
 in {
-  "workbench.colorTheme" = "Catppuccin ${(toUpper builtins.substring 0 1 flavor) + builtins.substring 1 (builtins.stringLength flavor) flavor}";
+  "workbench.colorTheme" = "Catppuccin ${(toUpper (builtins.substring 0 1 flavor)) + (builtins.substring 1 (builtins.stringLength flavor) flavor)}";
   "workbench.iconTheme" = "catppuccin-${flavor}";
   "github.gitAuthentication" = false;
   "terminal.integrated.fontFamily" = builtins.concatStringsSep ", " (map (font: "'${font}'") osConfig.fonts.fontconfig.defaultFonts.monospace);
