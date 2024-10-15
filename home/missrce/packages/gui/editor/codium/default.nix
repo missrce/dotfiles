@@ -1,6 +1,6 @@
 {osConfig, inputs, pkgs, lib, ...}: {
   programs.vscode = {
-    enable = true;
+    enable = osConfig.missos.system.interface.graphical;
     package = pkgs.vscodium;
 
     enableUpdateCheck = false;
