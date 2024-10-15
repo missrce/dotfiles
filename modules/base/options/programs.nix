@@ -1,6 +1,6 @@
 {lib, ...}: let
   inherit (lib.types) nullOr enum;
-  inherit (lib.options) mkOption;
+  inherit (lib.options) mkEnableOption mkOption;
 in {
   options.missos.programs = {
     browser = mkOption {
@@ -21,6 +21,10 @@ in {
         "foot"
       ]);
       default = "foot";
+    };
+    games = {
+      minecraft = mkEnableOption "Enable Minecraft";
+      steam = mkEnableOption "Enable Steam";
     };
   };
 }
