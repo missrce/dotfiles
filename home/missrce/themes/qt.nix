@@ -2,8 +2,7 @@
   lib,
   osConfig,
   ...
-}:
-let
+}: let
   inherit (lib.modules) mkIf;
   inherit (lib.validators) isAcceptedDevice;
 
@@ -13,8 +12,7 @@ let
     "laptop"
     "desktop"
   ];
-in
-{
+in {
   config = mkIf (isAcceptedDevice osConfig acceptedTypes && graphical) {
     qt = {
       enable = true;

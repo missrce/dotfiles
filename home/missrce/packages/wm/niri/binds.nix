@@ -73,6 +73,12 @@ in
     "Mod+Shift+Minus".action = set-window-height "-10%";
     "Mod+Shift+Equal".action = set-window-height "+10%";
 
+    # Mouse
+    "Mod+WheelScrollDown".action = focus-workspace-down;
+    "Mod+WheelScrollUp".action = focus-workspace-up;
+    "Mod+Shift+WheelScrollDown".action = move-column-to-workspace-down;
+    "Mod+Shift+WheelScrollUp".action = move-column-to-workspace-up;
+
     # Screenshot
     "Print".action = screenshot-screen;
     "Mod+Print".action = screenshot;

@@ -1,5 +1,8 @@
-{osConfig, lib, ...}:
-let
+{
+  osConfig,
+  lib,
+  ...
+}: let
   inherit (osConfig.catppuccin) sources flavor accent;
 
   palette = (lib.importJSON "${sources.palette}/palette.json").${flavor}.colors;

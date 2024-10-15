@@ -2,8 +2,7 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib.meta) getExe;
 in {
   programs.fzf = {

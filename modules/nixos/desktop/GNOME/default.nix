@@ -1,4 +1,9 @@
-{config, pkgs, lib, ...}: let
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (lib.modules) mkIf;
 
   inherit (config.missos.environment) desktop;
@@ -14,7 +19,7 @@ in {
       gnome-contacts # Storing contacts on a PC probably isn't the most secure idea
       gnome-software # I do not install software imperatively
     ];
-    
+
     environment.sessionVariables = {
       "NIXOS_OZONE_WL" = "1"; # Tell Electron based apps to use Wayland
     };

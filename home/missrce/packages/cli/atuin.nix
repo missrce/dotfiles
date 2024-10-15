@@ -1,7 +1,7 @@
 {
   programs.atuin = {
     enable = true;
-    
+
     flags = ["--disable-ctrl-r"];
 
     settings = {

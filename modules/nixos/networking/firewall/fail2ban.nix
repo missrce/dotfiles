@@ -1,9 +1,11 @@
-{ lib, config, ... }:
-let
+{
+  lib,
+  config,
+  ...
+}: let
   inherit (lib.modules) mkMerge mkForce;
   inherit (lib.strings) concatStringsSep;
-in
-{
+in {
   # fail2ban firewall jail
   services.fail2ban = {
     enable = true;

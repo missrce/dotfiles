@@ -80,6 +80,15 @@
       };
     };
 
+    # vscode extensions
+    vscode-extensions = {
+      url = "github:nix-community/nix-vscode-extensions";
+      inputs = {
+        nixpkgs.follows = "nixpkgs-unstable";
+        flake-compat.follows = "";
+      };
+    };
+
     # catppuccin theming
     catppuccin = {
       type = "github";

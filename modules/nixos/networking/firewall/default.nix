@@ -3,13 +3,11 @@
   pkgs,
   config,
   ...
-}:
-let
+}: let
   inherit (lib.modules) mkForce;
   inherit (config.missos) device;
-in
-{
-  imports = [ ./fail2ban.nix ];
+in {
+  imports = [./fail2ban.nix];
 
   config = {
     # enable opensnitch firewall
@@ -24,7 +22,7 @@ in
         443
         8080
       ];
-      allowedUDPPorts = [ ];
+      allowedUDPPorts = [];
 
       # allow servers to be pinnged, but not our clients
       allowPing = device.type == "server";

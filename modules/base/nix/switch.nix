@@ -1,5 +1,10 @@
-{config, pkgs, lib, ...}: {
-  system = { 
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  system = {
     disableInstallerTools = true;
     switch = {
       enable = false;
