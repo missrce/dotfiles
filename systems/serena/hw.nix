@@ -2,6 +2,7 @@
   modulesPath,
   inputs,
   config,
+  pkgs',
   pkgs,
   lib,
   ...
@@ -53,6 +54,8 @@
       enable32Bit = true;
     };
   };
+
+  environment.systemPackages = [pkgs'.nvidia-offload];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;

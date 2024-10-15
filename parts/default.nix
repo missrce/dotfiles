@@ -17,6 +17,7 @@
   imports = [
     ./lib # Custom functions inside the flake applied to the global lib
     ./dev # Development tooling for the flake
+    ./packages # Custom packages
 
     ../systems # System configurations
   ];
