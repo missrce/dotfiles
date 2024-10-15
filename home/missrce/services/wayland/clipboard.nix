@@ -18,8 +18,12 @@ in {
         Restart = "always";
       };
     };
-    systemd.user.services.clear-clipboard = {
-      Unit.Description = "Clipboard history service";
+    systemd.user.services.clear-clipboard = mkGraphicalService {
+      Unit = {
+        Description = "Clipboard history service";
+        Requires = ["cliphist.service"];
+        After = ["cliphist.service"];
+      };
       Service = {
         Type = "oneshot";
         ExecStart = "${getExe pkgs.cliphist} wipe";
