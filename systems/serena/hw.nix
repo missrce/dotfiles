@@ -7,7 +7,7 @@
   lib,
   ...
 }: let
-  isUnstable = config.boot.zfs.package == pkgs.zfsUnstable;
+  isUnstable = config.boot.zfs.package == pkgs.zfs_unstable;
   zfsCompatibleKernelPackages =
     lib.filterAttrs (
       name: kernelPackages:
