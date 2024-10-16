@@ -1,7 +1,14 @@
-{ osConfig, pkgs, lib, ... }: let
+{
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (lib.lists) optionals;
+
+  inherit (osConfig.missos.system.interface) graphical;
 in {
-  home.packages = optionals osConfig.missos.programs.games.minecraft [
+  home.packages = optionals graphical [
     pkgs.prismlauncher
   ];
 }
