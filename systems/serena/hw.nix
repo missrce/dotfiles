@@ -29,7 +29,7 @@ in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     inputs.disko.nixosModules.disko
-    ./zfs.nix
+    ./disko.nix
   ];
 
   boot.zfs.package = pkgs.zfs_unstable;
