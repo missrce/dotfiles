@@ -14,14 +14,8 @@
       hasSound = true;
       hasTPM = true;
     };
-    programs = {
-      browser = "chromium";
-      launcher = "fuzzel";
-      terminal = "foot";
-      games = {
-        minecraft = true;
-        steam = true;
-      };
+    programs.games = {
+      steam = true;
     };
     system = {
       mainUserHashedPassword = "$y$j9T$tIq/hBimd7jvSr2bL/Lm0/$W0tjpjhc2dGy/F8mf4ASBqrGjO9YXUh9cEvAPNA.hvC";

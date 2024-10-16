@@ -7,8 +7,10 @@
   inherit (lib.modules) mkIf;
   inherit (lib.lists) concatLists;
   inherit (lib.strings) concatMapStrings;
+
+  inherit (osConfig.missos.system.interface) graphical;
 in {
-  programs.chromium = mkIf (osConfig.missos.programs.browser == "chromium") {
+  programs.chromium = mkIf graphical {
     enable = true;
 
     extensions = [
