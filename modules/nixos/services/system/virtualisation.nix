@@ -1,8 +1,11 @@
 {
   config,
   pkgs,
+  lib,
   ...
-}: {
+}: let
+  inherit (lib.modules) mkAfter;
+in {
   boot.kernelParams = [
     "iommu=pt"
   ];
@@ -19,12 +22,25 @@
           (pkgs.OVMF.override {
             secureBoot = true;
             tpmSupport = true;
+            msVarsTemplate = true;
           })
           .fd
         ];
       };
     };
   };
+
+  systemd.services.libvirtd-config.script = let
+    ovmfpackage = pkgs.buildEnv {
+      name = "qemu-ovmf";
+      paths = config.virtualisation.libvirtd.qemu.ovmf.packages;
+    };
+    dirName = "libvirt";
+  in
+    mkAfter ''
+      ln -s --force ${ovmfpackage}/FV/OVMF_CODE.ms.fd /run/${dirName}/nix-ovmf/
+      ln -s --force ${ovmfpackage}/FV/OVMF_VARS.ms.fd /run/${dirName}/nix-ovmf/
+    '';
 
   boot.kernelModules = [
     "vhost"
