@@ -30,5 +30,14 @@ in {
       # Don't filter DHCP packets, according to nixops-libvirtd
       checkReversePath = mkForce false;
     };
+
+    boot.kernelModules = [
+      "ipt_REJECT"
+      "ip6_tables"
+      "nf_reject_ipv6"
+
+      "xt_CHECKSUM"
+      "xt_MASQUERADE"
+    ];
   };
 }
