@@ -4,7 +4,8 @@
   lib,
   ...
 }: let
-  inherit (lib.modules) mkEnableOption mkAfter mkIf;
+  inherit (lib.modules) mkAfter mkIf;
+  inherit (lib.options) mkEnableOption;
 
   cfg = config.missos.system;
 in {
