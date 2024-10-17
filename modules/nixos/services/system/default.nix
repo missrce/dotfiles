@@ -6,5 +6,6 @@
     ./monitoring.nix
     ./oomd.nix
     ./earlyoom.nix
+    ./virtualisation.nix
   ];
 }
