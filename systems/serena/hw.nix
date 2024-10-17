@@ -116,7 +116,7 @@ in {
         # extraModprobeConfig = ''
         #   options kvmfr static_size_mb=128
         # '';
-        boot.kernelModules = [
+        kernelModules = [
           "vfio_pci"
           "vfio"
           "vfio_iommu_type1"
