@@ -7,9 +7,15 @@
   lib,
   ...
 }: let
+  inherit (lib.attrsets) filterAttrs;
+  inherit (lib.modules) mkDefault;
+  inherit (lib.strings) versionOlder;
+  inherit (lib.lists) last;
+  inherit (lib) sort concatStringsSep;
+
   isUnstable = config.boot.zfs.package == pkgs.zfs_unstable;
   zfsCompatibleKernelPackages =
-    lib.filterAttrs (
+    filterAttrs (
       name: kernelPackages:
         (builtins.match "linux_[0-9]+_[0-9]+" name)
         != null
@@ -20,8 +26,8 @@
         )
     )
     pkgs.linuxKernel.packages;
-  latestKernelPackage = lib.last (
-    lib.sort (a: b: (lib.versionOlder a.kernel.version b.kernel.version)) (
+  latestKernelPackage = last (
+    sort (a: b: (versionOlder a.kernel.version b.kernel.version)) (
       builtins.attrValues zfsCompatibleKernelPackages
     )
   );
@@ -104,7 +110,7 @@ in {
       '';
       boot = {
         kernelParams = [
-          ("vfio-pci.ids=" + lib.concatStringsSep "," iommuDeviceIDs)
+          ("vfio-pci.ids=" + concatStringsSep "," iommuDeviceIDs)
         ];
         extraModulePackages = with config.boot.kernelPackages; [kvmfr];
         extraModprobeConfig = ''
@@ -131,7 +137,7 @@ in {
     initrd.systemd.enable = true;
   };
 
-  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.cpu.amd.updateMicrocode = mkDefault config.hardware.enableRedistributableFirmware;
 
   system.stateVersion = "24.11";
 }
