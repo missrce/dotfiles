@@ -105,17 +105,17 @@ in {
         "10de:22ba" # Audio 01:00.1
       ];
     in {
-      services.udev.extraRules = ''
-        SUBSYSTEM=="kvmfr", OWNER="${config.missos.system.mainUser}", GROUP="kvm", MODE="0660"
-      '';
+      # services.udev.extraRules = ''
+      #   SUBSYSTEM=="kvmfr", OWNER="${config.missos.system.mainUser}", GROUP="kvm", MODE="0660"
+      # '';
       boot = {
         kernelParams = [
           ("vfio-pci.ids=" + concatStringsSep "," iommuDeviceIDs)
         ];
-        extraModulePackages = with config.boot.kernelPackages; [kvmfr];
-        extraModprobeConfig = ''
-          options kvmfr static_size_mb=128
-        '';
+        # extraModulePackages = with config.boot.kernelPackages; [kvmfr];
+        # extraModprobeConfig = ''
+        #   options kvmfr static_size_mb=128
+        # '';
         kernelModules = ["vfio_pci" "vfio" "vfio_iommu_type1"];
       };
     };
