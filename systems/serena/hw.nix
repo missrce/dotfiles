@@ -8,7 +8,7 @@
   ...
 }: let
   inherit (lib.attrsets) filterAttrs;
-  inherit (lib.modules) mkDefault;
+  inherit (lib.modules) mkForce mkDefault;
   inherit (lib.strings) versionOlder;
   inherit (lib.lists) last;
   # inherit (lib) sort concatStringsSep;
@@ -130,15 +130,25 @@ in {
     kernelPackages = latestKernelPackage;
     tmp.cleanOnBoot = true;
     plymouth.enable = true;
+
+    lanzaboote = {
+      enable = true;
+      pkiBundle = "/etc/secureboot";
+      configurationLimit = 3;
+    };
+
     loader = {
       efi.canTouchEfiVariables = true;
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 3;
-        netbootxyz.enable = true;
-        memtest86.enable = true;
-      };
+
+      # systemd-boot = {
+      #   enable = true;
+      #   configurationLimit = 3;
+      #   memtest86.enable = true;
+      # };
+
+      systemd-boot.enable = mkForce false;
     };
+
     initrd.systemd.enable = true;
   };
 
