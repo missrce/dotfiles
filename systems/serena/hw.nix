@@ -32,7 +32,8 @@
       builtins.attrValues zfsCompatibleKernelPackages
     )
   );
-  isSpecialisation = config.specialisation == {};
+  # isSpecialisation = config.specialisation == {};
+  isSpecialisation = false;
 in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
