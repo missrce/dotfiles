@@ -36,8 +36,11 @@ in {
       "ip6_tables"
       "iptable_nat"
 
+      "nft_chain_nat"
       "nf_reject_ipv6"
       "nf_nat"
+
+      "udp_diag"
 
       "xt_CHECKSUM"
       "xt_MASQUERADE"
