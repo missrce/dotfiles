@@ -34,7 +34,10 @@ in {
     boot.kernelModules = [
       "ipt_REJECT"
       "ip6_tables"
+      "iptable_nat"
+
       "nf_reject_ipv6"
+      "nf_nat"
 
       "xt_CHECKSUM"
       "xt_MASQUERADE"
