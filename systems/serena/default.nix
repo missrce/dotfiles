@@ -23,6 +23,9 @@
 
       interface.graphical = true;
       yubikeySupport = true;
+      virtualisation = {
+        libvirtd = true;
+      };
       security = {
         auditd = {
           enable = true;
