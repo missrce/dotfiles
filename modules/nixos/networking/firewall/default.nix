@@ -10,10 +10,6 @@ in {
   imports = [./fail2ban.nix];
 
   config = {
-    # enable opensnitch firewall
-    # inactive until opensnitch UI is opened
-    services.opensnitch.enable = device.type != "server";
-
     networking.firewall = {
       enable = true;
       package = pkgs.iptables;
