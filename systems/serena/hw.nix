@@ -35,6 +35,7 @@ in {
   boot.zfs.package = pkgs.zfs_unstable;
 
   zramSwap.enable = true;
+
   services = {
     fstrim.enable = true;
     zfs = {
@@ -42,6 +43,8 @@ in {
       trim.enable = true;
     };
   };
+
+  services.xserver.videoDrivers = ["nvidia"];
 
   hardware = {
     nvidia = {
