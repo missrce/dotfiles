@@ -20,7 +20,6 @@ in {
     "tsx=auto"
     "init_on_free=1"
     "iommu.strict=1"
-    "iommu=force"
     "randomize_kstack_offset=1"
   ];
 
