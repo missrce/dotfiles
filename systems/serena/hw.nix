@@ -65,8 +65,8 @@ in {
           enableOffloadCmd = false;
         };
 
-        amdgpuBusId = "PCI:16:00:0";
         nvidiaBusId = "PCI:01:00:0";
+        amdgpuBusId = "PCI:16:00:0";
       };
 
       # Enable the Nvidia settings menu,
