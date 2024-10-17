@@ -6,9 +6,16 @@
 }: let
   inherit (lib.modules) mkAfter;
 in {
-  boot.kernelParams = [
-    "iommu=pt"
-  ];
+  boot = {
+    kernelParams = [
+      "iommu=pt"
+    ];
+    kernelModules = [
+      "vhost"
+      "vhost_net"
+      "vhost_iotlb"
+    ];
+  };
 
   virtualisation.libvirtd = {
     enable = true;
@@ -41,12 +48,6 @@ in {
       ln -s --force ${ovmfpackage}/FV/OVMF_CODE.ms.fd /run/${dirName}/nix-ovmf/
       ln -s --force ${ovmfpackage}/FV/OVMF_VARS.ms.fd /run/${dirName}/nix-ovmf/
     '';
-
-  boot.kernelModules = [
-    "vhost"
-    "vhost_net"
-    "vhost_iotlb"
-  ];
 
   programs.virt-manager.enable = config.missos.system.interface.graphical;
 }
