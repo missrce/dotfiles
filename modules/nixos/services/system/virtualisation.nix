@@ -30,7 +30,6 @@
     "vhost"
     "vhost_net"
     "vhost_iotlb"
-    "vfio_pci"
   ];
 
   programs.virt-manager.enable = config.missos.system.interface.graphical;

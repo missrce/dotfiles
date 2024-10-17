@@ -25,6 +25,7 @@
       builtins.attrValues zfsCompatibleKernelPackages
     )
   );
+  isSpecialisation = config.specialisation == {};
 in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -42,9 +43,8 @@ in {
       autoScrub.enable = true;
       trim.enable = true;
     };
+    xserver.videoDrivers = if !isSpecialisation then ["nvidia"] else [];
   };
-
-  services.xserver.videoDrivers = ["nvidia"];
 
   hardware = {
     nvidia = {
@@ -61,7 +61,7 @@ in {
 
       prime = {
         offload = {
-          enable = true;
+          enable = !isSpecialisation;
           enableOffloadCmd = false;
         };
 
@@ -83,7 +83,22 @@ in {
     };
   };
 
-  environment.systemPackages = [self'.packages.nvidia-offload];
+  environment.systemPackages = if !isSpecialisation then [self'.packages.nvidia-offload] else [];
+
+  specialisation.vfio = {
+    inheritParentConfig = true;
+    configuration = let
+      iommuDeviceIDs = [
+        "10de:2684" # VGA 01:00.0
+        "10de:22ba" # Audio 01:00.1
+      ];
+    in {
+      boot.kernelParams = [
+        ("vfio-pci.ids=" + lib.concatStringsSep "," iommuDeviceIDs)
+      ];
+      boot.kernelModules = [ "vfio_pci" "vfio" "vfio_iommu_type1" ];
+    };
+  };
 
   boot = {
     kernelPackages = latestKernelPackage;
