@@ -36,6 +36,7 @@
 in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
+    inputs.lanzaboote.nixosModules.lanzaboote
     inputs.disko.nixosModules.disko
     ./disko.nix
   ];
