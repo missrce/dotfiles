@@ -43,7 +43,10 @@ in {
       autoScrub.enable = true;
       trim.enable = true;
     };
-    xserver.videoDrivers = if !isSpecialisation then ["nvidia"] else [];
+    xserver.videoDrivers =
+      if !isSpecialisation
+      then ["nvidia"]
+      else [];
   };
 
   hardware = {
@@ -83,7 +86,10 @@ in {
     };
   };
 
-  environment.systemPackages = if !isSpecialisation then [self'.packages.nvidia-offload] else [];
+  environment.systemPackages =
+    if !isSpecialisation
+    then [self'.packages.nvidia-offload]
+    else [];
 
   specialisation.vfio = {
     inheritParentConfig = true;
@@ -93,10 +99,19 @@ in {
         "10de:22ba" # Audio 01:00.1
       ];
     in {
-      boot.kernelParams = [
-        ("vfio-pci.ids=" + lib.concatStringsSep "," iommuDeviceIDs)
-      ];
-      boot.kernelModules = [ "vfio_pci" "vfio" "vfio_iommu_type1" ];
+      services.udev.extraRules = ''
+        SUBSYSTEM=="kvmfr", OWNER="${config.missos.system.mainUser}", GROUP="kvm", MODE="0660"
+      '';
+      boot = {
+        kernelParams = [
+          ("vfio-pci.ids=" + lib.concatStringsSep "," iommuDeviceIDs)
+        ];
+        extraModulePackages = with config.boot.kernelPackages; [kvmfr];
+        extraModprobeConfig = ''
+          options kvmfr static_size_mb=128
+        '';
+        kernelModules = ["vfio_pci" "vfio" "vfio_iommu_type1"];
+      };
     };
   };
 
