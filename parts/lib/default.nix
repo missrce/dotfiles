@@ -13,6 +13,7 @@
       services = import ./services.nix {inherit lib;};
       builders = import ./builders.nix {inherit lib inputs withSystem;};
       validators = import ./validators.nix;
+      templates = import ./templates.nix;
     }
   );
 
