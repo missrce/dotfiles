@@ -28,6 +28,11 @@
       target = "nixos";
       modules = shared;
     }
+    {
+      host = "lotus";
+      target = "nixos";
+      modules = shared;
+    }
   ];
 in {
   flake = {
