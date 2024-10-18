@@ -1,4 +1,3 @@
-# nvme-Seagate_FireCuda_SE_SSD_ZP1000GM30033_7VQ0284D
 {
   disko.devices = {
     disk = {
