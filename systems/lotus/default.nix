@@ -1,6 +1,6 @@
 {
   imports = [
-    # ./hw.nix
+    ./hw.nix
   ];
 
   missos = {
