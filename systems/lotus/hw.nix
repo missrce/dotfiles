@@ -96,7 +96,6 @@
       systemd-boot = {
         enable = true;
         configurationLimit = 3;
-        memtest86.enable = true;
       };
 
       # systemd-boot.enable = lib.modules.mkForce false;
