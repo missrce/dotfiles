@@ -11,6 +11,7 @@ in {
     description = "Integra";
     shell = pkgs.bash;
     hashedPassword = config.missos.system.mainUserHashedPassword;
+    openssh.authorizedKeys.keys = config.boot.initrd.network.ssh.authorizedKeys;
     extraGroups =
       ["wheel" "nix"]
       ++ ifGroupsExist config [
