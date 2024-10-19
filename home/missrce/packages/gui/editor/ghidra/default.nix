@@ -26,11 +26,9 @@ in {
       ghidra
     ];
 
-    home.file."${ghidraConfigDir}/themes/${themeName}.theme".text = builtins.readFile "${catppuccin}/themes/${themeName}.theme";
-
-    modules.home.standAloneFile."${ghidraConfigDir}/preferences" = {
-      override = false;
-      text = ''
+    home = {
+      file."${ghidraConfigDir}/themes/${themeName}.theme".text = builtins.readFile "${catppuccin}/themes/${themeName}.theme";
+      file."${ghidraConfigDir}/preferences".text = ''
         GhidraShowWhatsNew=false
         SHOW.HELP.NAVIGATION.AID=true
         SHOW_TIPS=false
