@@ -17,7 +17,7 @@
     owner = "catppuccin";
     repo = "ghidra";
     rev = "bed0999f96ee9869ed25e0f1439bef5eff341e22";
-    hash = "1faa4k4rfn35qnf7bpcf9jm7fbpmza5xj8dx24dpc6ychy5kk4zx";
+    hash = "sha256-mm7oxP8Fpn8PuyIgcsm6ZIfq11aEqqpzDL3FAF58ods=";
   };
   themeName = "catppuccin-${flavor}";
 in {
