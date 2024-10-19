@@ -17,7 +17,7 @@ in {
     nixPath = attrValues (mapAttrs (k: v: "${k}=${v.outPath}") flakeInputs);
 
     gc = {
-      automatic = true;
+      automatic = false;
       dates = "weekly";
       options = "--delete-older-than 7d";
     };
