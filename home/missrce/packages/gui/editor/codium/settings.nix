@@ -1,4 +1,9 @@
-{ osConfig, pkgs, lib, ... }: let
+{
+  osConfig,
+  pkgs,
+  lib,
+  ...
+}: let
   inherit (lib.strings) toUpper;
   inherit (lib.meta) getExe;
 

@@ -1,9 +1,8 @@
-{ pkgs, ... }:
-
+{pkgs, ...}:
 pkgs.writeShellApplication {
   name = "nvidia-offload";
 
-  runtimeInputs = with pkgs; [ glxinfo ];
+  runtimeInputs = with pkgs; [glxinfo];
 
   text = ''
     case "$@" in

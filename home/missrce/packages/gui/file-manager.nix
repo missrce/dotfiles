@@ -3,13 +3,11 @@
   pkgs,
   lib,
   ...
-}:
-let
+}: let
   inherit (lib.modules) mkIf;
 
   inherit (osConfig.missos.system.interface) graphical;
-in
-{
+in {
   config = mkIf graphical {
     home.packages = [
       pkgs.nautilus

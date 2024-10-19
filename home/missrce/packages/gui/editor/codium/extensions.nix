@@ -1,5 +1,7 @@
-{ extensions, pkgs }:
-
+{
+  extensions,
+  pkgs,
+}:
 builtins.concatLists (builtins.attrValues {
   git = with extensions; [
     maattdd.gitless
@@ -43,7 +45,7 @@ builtins.concatLists (builtins.attrValues {
     gregorbiswanger.json2ts
     yoavbls.pretty-ts-errors
   ];
-  
+
   config = with extensions; [
     editorconfig.editorconfig
   ];

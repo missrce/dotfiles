@@ -20,7 +20,7 @@ let
     RestrictRealtime = true;
     RestrictSUIDSGID = true;
     SystemCallArchitectures = "native";
-    SystemCallFilter = [ "@system-service" ];
+    SystemCallFilter = ["@system-service"];
     UMask = "0077";
   };
 in {

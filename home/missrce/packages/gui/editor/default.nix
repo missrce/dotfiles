@@ -1,5 +1,5 @@
 {
-	imports = [
-		./codium # VSCode without Microsoft proprietary magic
-	];
+  imports = [
+    ./codium # VSCode without Microsoft proprietary magic
+  ];
 }
