@@ -3,14 +3,14 @@
   pkgs,
   lib,
   ...
-}: let 
+}: let
   inherit (lib.modules) mkIf;
 in {
   system = {
     disableInstallerTools = true;
     switch = {
       enable = false;
-      enableNg = !config.programs.nh.enable; # We only need this if NH is disabled
+      enableNg = true; # We only need this if NH is disabled
     };
   };
 
