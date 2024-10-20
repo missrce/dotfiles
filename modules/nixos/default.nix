@@ -8,6 +8,7 @@
     ./dm # Display Manager configurations
     ./desktop # Desktop configs
 
+    ./packages # Some system-wide packages
     ./nix.nix # Modify Nix configuration
     ./catppuccin.nix # Catppuccin setup
   ];
