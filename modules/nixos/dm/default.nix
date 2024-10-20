@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  config,
+  lib,
+  ...
+}: let
   inherit (lib.options) mkOption;
   inherit (lib.types) nullOr enum;
   inherit (lib.modules) mkDefault;
@@ -17,7 +21,10 @@ in {
       "gdm"
       "sddm"
     ]);
-    default = "gdm";
+    default =
+      if config.missos.system.interface.graphical
+      then "gdm"
+      else "getty";
     description = "The display manager to be used by the system.";
   };
 
