@@ -1,6 +1,4 @@
 [package]
 name = "example"
 version = "0.0.1"
-license = "MPL-2.0"
-description = "A example Rust project using Nix"
 edition = "2021"
