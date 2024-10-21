@@ -18,6 +18,7 @@
     ./lib # Custom functions inside the flake applied to the global lib
     ./dev # Development tooling for the flake
     ./packages # Custom packages
+    ./templates # Nix flake templates
 
     ../systems # System configurations
   ];
