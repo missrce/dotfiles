@@ -7,7 +7,7 @@
 }: let
   inherit (lib.attrsets) filterAttrs attrValues mapAttrs;
 
-  flakeInputs = filterAttrs (name: value: (value ? outputs) && (name != "self")) inputs;
+  flakeInputs = filterAttrs (_: value: (value ? outputs)) inputs;
 in {
   nix = {
     package = pkgs.nixVersions.latest;
