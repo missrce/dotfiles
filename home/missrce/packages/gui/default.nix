@@ -8,5 +8,6 @@
     ./games # stress relief
 
     ./file-manager.nix # how else will I browse my computer?
+    ./misc.nix # miscellaneous packages
   ];
 }
