@@ -1,15 +1,25 @@
 {
-  programs.mpv.enable = true;
+  osConfig,
+  lib,
+  ...
+}: let
+  inherit (lib.modules) mkIf;
 
-  xdg.mimeApps = let
-    associations = {
-      "video/*" = [
-        "mpv.desktop"
-      ];
+  inherit (osConfig.missos.system.interface) graphical;
+in {
+  config = mkIf graphical {
+    programs.mpv.enable = true;
+
+    xdg.mimeApps = let
+      associations = {
+        "video/*" = [
+          "mpv.desktop"
+        ];
+      };
+    in {
+      enable = true;
+      associations.added = associations;
+      defaultApplications = associations;
     };
-  in {
-    enable = true;
-    associations.added = associations;
-    defaultApplications = associations;
   };
 }
