@@ -44,6 +44,9 @@ in {
 
       "xt_CHECKSUM"
       "xt_MASQUERADE"
+      "xt_tcp"
+      "xt_comment"
+      "xt_multiport"
     ];
   };
 }
