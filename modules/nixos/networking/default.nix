@@ -10,6 +10,7 @@ in {
     ./nm.nix
     ./vpn.nix
     ./tcp.nix
+    ./tor.nix
     ./ssh.nix
     ./systemd.nix
   ];
