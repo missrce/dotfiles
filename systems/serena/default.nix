@@ -31,7 +31,6 @@
           enable = true;
           autoPrune.enable = true;
         };
-        tor.enable = true;
       };
     };
   };
