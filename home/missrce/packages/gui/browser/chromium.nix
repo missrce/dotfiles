@@ -19,6 +19,7 @@ in {
       "eimadpbcbfnmbkopoojfekhnkhdbieeh" # Dark Reader
       "clngdbkpkpeebahjckkjfobafhncgmne" # Stylus
       "nngceckbapebfimnlniiiahkandclblb" # Bitwarden
+      "oboonakemofpalcgghocfoadofidjkkk" # KeepassXC
       "mnjggcdmjocbbbhaepdhchncahnbgone" # SponsorBlock
       "emffkefkbkpkgpdeeooapgaicgmcbolj" # Wikiwand
       "ngonfifpkpeefnhelnfdkficaiihklid" # ProtonDB
