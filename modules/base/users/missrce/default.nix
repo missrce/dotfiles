@@ -8,7 +8,7 @@
 in {
   users.users.missrce = {
     isNormalUser = true;
-    description = "Integra";
+    description = "Charlie";
     shell = pkgs.bash;
     hashedPassword = config.missos.system.mainUserHashedPassword;
     openssh.authorizedKeys.keys = config.boot.initrd.network.ssh.authorizedKeys;
