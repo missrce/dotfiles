@@ -5,11 +5,18 @@
   lib,
   ...
 }: let
-  inherit (pkgs) ghidra;
   inherit (lib.modules) mkIf;
   inherit (osConfig.missos.system.interface) graphical;
 
   inherit (osConfig.catppuccin) flavor;
+
+  ghidra = pkgs.ghidra.overrideAttrs (_: _: {
+    postInstall = ''
+      wrapProgram $out/bin/ghidra \
+        --set _JAVA_AWT_WM_NONREPARENTING 1 \
+        --set DISPLAY ":0"
+    '';
+  });
 
   ghidraConfigDir = ".config/ghidra/${ghidra.distroPrefix}";
 
