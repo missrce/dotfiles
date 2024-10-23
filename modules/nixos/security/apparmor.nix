@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   # Creates /var/log/syslog which is required for AppArmor
   services = {
     syslogd.enable = true;
@@ -22,7 +22,7 @@
     killUnconfinedConfinables = true;
 
     # packages to be added to AppArmor’s include path
-    # packages = [pkgs.apparmor-profiles];
+    packages = [pkgs.apparmor-profiles];
 
     # apparmor policies
     policies = {
