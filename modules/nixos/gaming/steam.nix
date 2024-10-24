@@ -12,9 +12,6 @@ in {
   options.missos.programs.gaming.steam.enable = mkEnableOption "Steam";
 
   config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [
-      steam-tui
-    ];
     programs.steam = {
       enable = true;
       extraCompatPackages = [pkgs.proton-ge-bin.steamcompattool];
