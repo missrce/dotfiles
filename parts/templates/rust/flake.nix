@@ -1,6 +1,4 @@
 {
-  description = "Rust Project Template";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
