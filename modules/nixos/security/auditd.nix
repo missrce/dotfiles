@@ -56,6 +56,7 @@ in {
           if [[ $(stat -c "%s" /var/log/audit/audit.log) -gt ${toString cfg.autoPrune.size} ]]; then
             echo "Clearing Audit Log";
             rm -rvf /var/log/audit/audit.log;
+            touch /var/log/audit/audit.log
             echo "Done!"
           fi
         '';
