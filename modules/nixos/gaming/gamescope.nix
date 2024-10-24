@@ -6,7 +6,7 @@
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption;
 
-  cfg = config.missos.programs.gaming;
+  cfg = config.missos.programs.gaming.gamescope;
 in {
   options.missos.programs.gaming.gamescope.enable = mkEnableOption "gamescope compositing manager";
 
