@@ -7,6 +7,7 @@
     ./environment # Environment stuff
     ./dm # Display Manager configurations
     ./desktop # Desktop configs
+    ./gaming # Gaming stuff
 
     ./packages # Some system-wide packages
     ./nix.nix # Modify Nix configuration
