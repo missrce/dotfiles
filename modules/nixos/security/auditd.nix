@@ -57,6 +57,7 @@ in {
             echo "Clearing Audit Log";
             rm -rvf /var/log/audit/audit.log;
             touch /var/log/audit/audit.log
+            systemctl restart auditd
             echo "Done!"
           fi
         '';
