@@ -7,7 +7,7 @@
   mainPkg = callPackage ./default.nix {};
 in
   mainPkg.overrideAttrs (oa: {
-    buildInputs =
+    nativeBuildInputs =
       [
         clippy
         rustfmt
