@@ -7,10 +7,10 @@
   inherit (lib.modules) mkAfter mkIf;
   inherit (lib.options) mkEnableOption;
 
-  cfg = config.missos.system.virtualisation.libvirtd;
+  cfg = config.missos.system;
 in {
   options.missos.system.virtualisation.libvirtd.enable = mkEnableOption "Enable libvirtd";
-  config = mkIf cfg.enable {
+  config = mkIf cfg.virtualisation.libvirtd.enable {
     virtualisation.libvirtd = {
       enable = true;
       qemu = {
