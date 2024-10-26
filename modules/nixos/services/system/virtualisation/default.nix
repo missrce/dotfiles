@@ -1,6 +1,7 @@
 {
   imports = [
     ./libvirtd.nix
+    ./podman.nix
   ];
 
   boot.kernelModules = [
