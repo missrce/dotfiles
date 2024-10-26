@@ -21,7 +21,8 @@
       interface.graphical = true;
       yubikeySupport = true;
       virtualisation = {
-        libvirtd = true;
+        libvirtd.enable = true;
+        podman.enable = true;
       };
       security = {
         auditd = {
