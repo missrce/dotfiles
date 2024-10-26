@@ -59,6 +59,7 @@ in {
   };
 
   hardware = {
+    nvidia-container-toolkit.enable = true;
     nvidia = {
       # Modesetting is required.
       modesetting.enable = false;
