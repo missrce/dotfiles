@@ -6,6 +6,8 @@
   inherit (lib.modules) mkForce;
 in {
   security = {
+    lockKernelModules = mkForce false;
+    protectKernelImage = mkForce false;
     unprivilegedUsernsClone = mkForce config.virtualisation.containers.enable;
     allowUserNamespaces = mkForce true;
     allowSimultaneousMultithreading = true; # "Disabling SMT means that only physical CPU cores will be usable at runtime, potentially at significant performance cost."
