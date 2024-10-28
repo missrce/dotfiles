@@ -7,31 +7,9 @@
   lib,
   ...
 }: let
-  inherit (lib.attrsets) filterAttrs;
   inherit (lib.modules) mkDefault;
-  inherit (lib.strings) versionOlder;
-  inherit (lib.lists) last;
   # inherit (lib) sort concatStringsSep;
-  inherit (lib) sort;
 
-  isUnstable = config.boot.zfs.package == pkgs.zfs_unstable;
-  zfsCompatibleKernelPackages =
-    filterAttrs (
-      name: kernelPackages:
-        (builtins.match "linux_[0-9]+_[0-9]+" name)
-        != null
-        && (builtins.tryEval kernelPackages).success
-        && (
-          (!isUnstable && !kernelPackages.zfs.meta.broken)
-          || (isUnstable && !kernelPackages.zfs_unstable.meta.broken)
-        )
-    )
-    pkgs.linuxKernel.packages;
-  latestKernelPackage = last (
-    sort (a: b: (versionOlder a.kernel.version b.kernel.version)) (
-      builtins.attrValues zfsCompatibleKernelPackages
-    )
-  );
   # isSpecialisation = config.specialisation == {};
   isSpecialisation = false;
 in {
@@ -42,16 +20,11 @@ in {
     ./disko.nix
   ];
 
-  boot.zfs.package = pkgs.zfs_unstable;
-
   zramSwap.enable = true;
 
   services = {
     fstrim.enable = true;
-    zfs = {
-      autoScrub.enable = true;
-      trim.enable = true;
-    };
+    btrfs.autoScrub.enable = true;
     xserver.videoDrivers =
       if !isSpecialisation
       then ["nvidia"]
@@ -130,7 +103,7 @@ in {
   # };
 
   boot = {
-    kernelPackages = latestKernelPackage;
+    kernelPackages = pkgs.linuxPackages_latest;
     tmp.cleanOnBoot = true;
     plymouth.enable = true;
 
