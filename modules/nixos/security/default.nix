@@ -2,7 +2,7 @@
 # https://github.com/fort-nix/nix-bitcoin/blob/master/modules/presets/hardened-extended.nix
 {...}: {
   imports = [
-    # "${modulesPath}/profiles/hardened.nix"
+    ./hardened.nix
     ./memalloc.nix
     ./kernel.nix
     ./secureboot.nix
