@@ -5,15 +5,12 @@
 }: let
   inherit (lib.modules) mkForce;
 in {
-  # FIXME: Please later on review the things and see what breaks Wine and what doesn't
-  # Dev note this broke this project https://github.com/rumester/rumester
-
   security = {
     lockKernelModules = mkForce false;
     protectKernelImage = mkForce false;
     unprivilegedUsernsClone = mkForce config.virtualisation.containers.enable;
     allowUserNamespaces = mkForce true;
-    allowSimultaneousMultithreading = true; # "Disabling SMT means that only physical CPU cores will be usable at runtime, potentially at significant performance cost."
+    allowSimultaneousMultithreading = mkForce true; # "Disabling SMT means that only physical CPU cores will be usable at runtime, potentially at significant performance cost."
   };
 
   boot.kernelParams = [
