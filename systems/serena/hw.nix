@@ -8,10 +8,6 @@
   ...
 }: let
   inherit (lib.modules) mkDefault;
-  # inherit (lib) sort concatStringsSep;
-
-  # isSpecialisation = config.specialisation == {};
-  isSpecialisation = false;
 in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
@@ -25,10 +21,7 @@ in {
   services = {
     fstrim.enable = true;
     btrfs.autoScrub.enable = true;
-    xserver.videoDrivers =
-      if !isSpecialisation
-      then ["nvidia"]
-      else [];
+    xserver.videoDrivers = ["nvidia"];
   };
 
   hardware = {
@@ -47,7 +40,7 @@ in {
 
       prime = {
         offload = {
-          enable = !isSpecialisation;
+          enable = true;
           enableOffloadCmd = false;
         };
 
@@ -69,38 +62,7 @@ in {
     };
   };
 
-  environment.systemPackages =
-    if !isSpecialisation
-    then [self'.packages.nvidia-offload]
-    else [];
-
-  # specialisation.vfio = {
-  #   inheritParentConfig = true;
-  #   configuration = let
-  #     iommuDeviceIDs = [
-  #       "10de:2684" # VGA 01:00.0
-  #       "10de:22ba" # Audio 01:00.1
-  #     ];
-  #   in {
-  #     # services.udev.extraRules = ''
-  #     #   SUBSYSTEM=="kvmfr", OWNER="${config.missos.system.mainUser}", GROUP="kvm", MODE="0660"
-  #     # '';
-  #     boot = {
-  #       kernelParams = [
-  #         ("vfio-pci.ids=" + concatStringsSep "," iommuDeviceIDs)
-  #       ];
-  #       # extraModulePackages = with config.boot.kernelPackages; [kvmfr];
-  #       # extraModprobeConfig = ''
-  #       #   options kvmfr static_size_mb=128
-  #       # '';
-  #       kernelModules = [
-  #         "vfio_pci"
-  #         "vfio"
-  #         "vfio_iommu_type1"
-  #       ];
-  #     };
-  #   };
-  # };
+  environment.systemPackages = [self'.packages.nvidia-offload];
 
   boot = {
     kernelPackages = pkgs.linuxPackages_latest;
