@@ -17,33 +17,12 @@
                 mountOptions = ["fmask=0077" "umask=0077"];
               };
             };
-            luks = {
+            root = {
               size = "100%";
               content = {
-                type = "luks";
-                name = "crypted";
-                askPassword = true;
-                settings = {
-                  allowDiscards = true;
-                };
-                content = {
-                  type = "btrfs";
-                  extraArgs = ["-f"];
-                  subvolumes = {
-                    "/root" = {
-                      mountpoint = "/";
-                      mountOptions = ["compress=zstd" "noatime" "nodiratime"];
-                    };
-                    "/home" = {
-                      mountpoint = "/home";
-                      mountOptions = ["compress=zstd" "noatime" "nodiratime"];
-                    };
-                    "/nix" = {
-                      mountpoint = "/nix";
-                      mountOptions = ["compress=zstd" "noatime" "nodiratime"];
-                    };
-                  };
-                };
+                type = "filesystem";
+                format = "ext4";
+                mountpoint = "/";
               };
             };
           };
