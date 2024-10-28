@@ -7,10 +7,7 @@
 # profile, always mention that you do.
 {lib, ...}:
 with lib; {
-  nix.settings.allowed-users = mkDefault ["@users"];
-
   security.forcePageTableIsolation = mkDefault true;
-
   security.virtualisation.flushL1DataCache = mkDefault "always";
   boot = {
     kernelParams = [
@@ -26,7 +23,6 @@ with lib; {
       # Disable debugfs
       "debugfs=off"
     ];
-
     blacklistedKernelModules = [
       # Obscure network protocols
       "ax25"
@@ -56,17 +52,7 @@ with lib; {
       "sysv"
       "ufs"
     ];
-
     kernel.sysctl = {
-      # Hide kptrs even for processes with CAP_SYSLOG
-      "kernel.kptr_restrict" = mkOverride 500 2;
-
-      # Disable bpf() JIT (to eliminate spray attacks)
-      "net.core.bpf_jit_enable" = mkDefault false;
-
-      # Disable ftrace debugging
-      "kernel.ftrace_enabled" = mkDefault false;
-
       # Enable strict reverse path filtering (that is, do not attempt to route
       # packets that "obviously" do not belong to the iface's network; dropped
       # packets are logged as martians).
