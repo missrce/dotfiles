@@ -13,6 +13,7 @@
       hasBluetooth = true;
       hasSound = true;
       hasTPM = true;
+      primaryRenderDevice = "/dev/dri/renderD128";
     };
     programs.games = {
       steam = true;
