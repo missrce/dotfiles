@@ -59,22 +59,6 @@
           };
         };
       };
-      d = {
-        type = "disk";
-        device = "/dev/disk/by-id/nvme-WD_BLACK_SN850X_2000GB_22302C801224";
-        content = {
-          type = "gpt";
-          partitions = {
-            zfs = {
-              size = "100%";
-              content = {
-                type = "zfs";
-                pool = "zroot";
-              };
-            };
-          };
-        };
-      };
     };
     zpool = {
       zroot = {
