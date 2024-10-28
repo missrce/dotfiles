@@ -8,7 +8,7 @@
   ...
 }: let
   inherit (lib.attrsets) filterAttrs;
-  inherit (lib.modules) mkForce mkDefault;
+  inherit (lib.modules) mkDefault;
   inherit (lib.strings) versionOlder;
   inherit (lib.lists) last;
   # inherit (lib) sort concatStringsSep;
@@ -37,7 +37,7 @@
 in {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
-    inputs.lanzaboote.nixosModules.lanzaboote
+    # inputs.lanzaboote.nixosModules.lanzaboote
     inputs.disko.nixosModules.disko
     ./disko.nix
   ];
@@ -134,22 +134,22 @@ in {
     tmp.cleanOnBoot = true;
     plymouth.enable = true;
 
-    lanzaboote = {
-      enable = true;
-      pkiBundle = "/etc/secureboot";
-      configurationLimit = 3;
-    };
+    # lanzaboote = {
+    #   enable = true;
+    #   pkiBundle = "/etc/secureboot";
+    #   configurationLimit = 3;
+    # };
 
     loader = {
       efi.canTouchEfiVariables = true;
 
-      # systemd-boot = {
-      #   enable = true;
-      #   configurationLimit = 3;
-      #   memtest86.enable = true;
-      # };
+      systemd-boot = {
+        enable = true;
+        # configurationLimit = 3;
+        memtest86.enable = true;
+      };
 
-      systemd-boot.enable = mkForce false;
+      # systemd-boot.enable = mkForce false;
     };
 
     initrd.systemd.enable = true;
