@@ -2,7 +2,7 @@
   disko.devices = {
     disk = {
       main = {
-        device = "/dev/disk/by-id/nvme-Seagate_FireCuda_SE_SSD_ZP1000GM30033_7VQ02747";
+        device = "/dev/disk/by-id/nvme-WD_BLACK_SN850X_2000GB_22260N801935";
         type = "disk";
         content = {
           type = "gpt";
