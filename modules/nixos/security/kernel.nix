@@ -38,37 +38,37 @@ in {
     "fs.protected_regular" = 2;
     "fs.suid_dumpable" = 2;
 
-    # Hide kptrs even for processes with CAP_SYSLOG
-    "kernel.kptr_restrict" = mkForce null;
+    # # Hide kptrs even for processes with CAP_SYSLOG
+    # "kernel.kptr_restrict" = mkForce null;
 
-    # Disable bpf() JIT (to eliminate spray attacks)
-    "net.core.bpf_jit_enable" = mkForce null;
+    # # Disable bpf() JIT (to eliminate spray attacks)
+    # "net.core.bpf_jit_enable" = mkForce null;
 
-    # Disable ftrace debugging
-    "kernel.ftrace_enabled" = mkForce null;
+    # # Disable ftrace debugging
+    # "kernel.ftrace_enabled" = mkForce null;
 
-    # Enable strict reverse path filtering (that is, do not attempt to route
-    # packets that "obviously" do not belong to the iface's network; dropped
-    # packets are logged as martians).
-    "net.ipv4.conf.all.log_martians" = mkForce null;
-    "net.ipv4.conf.all.rp_filter" = mkForce null;
-    "net.ipv4.conf.default.log_martians" = mkForce null;
-    "net.ipv4.conf.default.rp_filter" = mkForce null;
+    # # Enable strict reverse path filtering (that is, do not attempt to route
+    # # packets that "obviously" do not belong to the iface's network; dropped
+    # # packets are logged as martians).
+    # "net.ipv4.conf.all.log_martians" = mkForce null;
+    # "net.ipv4.conf.all.rp_filter" = mkForce null;
+    # "net.ipv4.conf.default.log_martians" = mkForce null;
+    # "net.ipv4.conf.default.rp_filter" = mkForce null;
 
-    # Ignore broadcast ICMP (mitigate SMURF)
-    "net.ipv4.icmp_echo_ignore_broadcasts" = mkForce null;
+    # # Ignore broadcast ICMP (mitigate SMURF)
+    # "net.ipv4.icmp_echo_ignore_broadcasts" = mkForce null;
 
-    # Ignore incoming ICMP redirects (note: default is needed to ensure that the
-    # setting is applied to interfaces added after the sysctls are set)
-    "net.ipv4.conf.all.accept_redirects" = mkForce null;
-    "net.ipv4.conf.all.secure_redirects" = mkForce null;
-    "net.ipv4.conf.default.accept_redirects" = mkForce null;
-    "net.ipv4.conf.default.secure_redirects" = mkForce null;
-    "net.ipv6.conf.all.accept_redirects" = mkForce null;
-    "net.ipv6.conf.default.accept_redirects" = mkForce null;
+    # # Ignore incoming ICMP redirects (note: default is needed to ensure that the
+    # # setting is applied to interfaces added after the sysctls are set)
+    # "net.ipv4.conf.all.accept_redirects" = mkForce null;
+    # "net.ipv4.conf.all.secure_redirects" = mkForce null;
+    # "net.ipv4.conf.default.accept_redirects" = mkForce null;
+    # "net.ipv4.conf.default.secure_redirects" = mkForce null;
+    # "net.ipv6.conf.all.accept_redirects" = mkForce null;
+    # "net.ipv6.conf.default.accept_redirects" = mkForce null;
 
-    # Ignore outgoing ICMP redirects (this is ipv4 only)
-    "net.ipv4.conf.all.send_redirects" = mkForce null;
-    "net.ipv4.conf.default.send_redirects" = mkForce null;
+    # # Ignore outgoing ICMP redirects (this is ipv4 only)
+    # "net.ipv4.conf.all.send_redirects" = mkForce null;
+    # "net.ipv4.conf.default.send_redirects" = mkForce null;
   };
 }
